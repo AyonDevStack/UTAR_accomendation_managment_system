@@ -1,0 +1,27 @@
+Accommodation_Management_System/
+│
+├── main.cpp
+│
+├── accommodation listing and search/
+│   ├── accommodation_listing_searching.cpp
+│   └── data/
+│       ├── students.txt
+│       ├── properties.txt
+│       └── shortlist.txt
+│
+├── communication/
+│   ├── communication.cpp
+│   └── data/
+│       ├── messages.txt
+│       └── appointments.txt
+│
+├── rental/
+│   ├── rental.cpp
+│   └── data/
+│       ├── rentals.txt
+│       └── payments.txt
+│
+└── include/
+    ├── accommodation.h
+    ├── communication.h
+    └── rental.h
