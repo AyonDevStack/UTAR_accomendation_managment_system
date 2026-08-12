@@ -1,11 +1,11 @@
-#🏠 UTAR Accommodation Management System
+🏠 UTAR Accommodation Management System
 
-#🚧 Currently Under Development
+🚧 Currently Under Development
 We're building it... one bug at a time. 😎💻
 
 A C++-based Accommodation Management System designed for UTAR students to search, manage, and handle accommodation-related information.
 
-#🎯 Project Goal
+🎯 Project Goal
 
 The goal of this project is to make accommodation management easier, faster, and less painful for UTAR students. 😂
 
