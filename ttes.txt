@@ -1,0 +1,216 @@
+#include <bits/stdc++.h>
+#include "accomedation.h"
+#include <fstream>
+
+using namespace std;
+
+
+// ============================================================
+// Student Structure
+// ============================================================
+
+struct acoomendation_listing_searching
+{
+    string name;
+    string email;
+    string phoneNumber;
+    string userNname;
+    string password;
+};
+
+
+// ============================================================
+// Check Student Name
+// ============================================================
+
+bool checkName(string name)
+{
+    if (name.empty())
+    {
+        return false;
+    }
+
+    for (char n : name)
+    {
+        if (!isalpha(n) && n != ' ')
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+// ============================================================
+// Student Registration
+// ============================================================
+
+void student_registration(
+    vector<acoomendation_listing_searching>& students)
+{
+    acoomendation_listing_searching s;
+
+    cout << "\n========== Student Registration ==========\n";
+
+    cout << "Enter your name: ";
+    cin >> s.name;
+
+    if (!checkName(s.name))
+    {
+        cout << "Invalid name." << endl;
+        return;
+    }
+
+    cout << "Enter your email: ";
+    cin >> s.email;
+
+    cout << "Enter your username: ";
+    cin >> s.userNname;
+
+    cout << "Enter your password: ";
+    cin >> s.password;
+
+    cout << "Enter your phone number: ";
+    cin >> s.phoneNumber;
+
+
+    // Add student to vector
+    students.push_back(s);
+
+
+    // Save student information into file
+    ofstream studentFile(
+        "data/student.txt",
+        ios::out | ios::app
+    );
+
+    if (!studentFile)
+    {
+        cout << "Unable to open student file." << endl;
+        return;
+    }
+
+    studentFile << "Name : " << s.name << endl;
+    studentFile << "Email : " << s.email << endl;
+    studentFile << "User name : " << s.userNname << endl;
+    studentFile << "Password : " << s.password << endl;
+    studentFile << "Phone Number : " << s.phoneNumber << endl;
+    studentFile << "----------------------" << endl;
+
+    studentFile.close();
+
+    cout << "\nYour details were added successfully!" << endl;
+}
+
+
+// ============================================================
+// Student Login
+// ============================================================
+
+bool StudentLogin(
+    vector<acoomendation_listing_searching>& students,
+    acoomendation_listing_searching& loggedInStudent)  // what is reason to added this line ? and what is the main cause to add & in here 
+{
+    string inputUserName;
+    string inputPassword;
+
+    cout << "\n========== Student Login ==========\n";
+
+    cout << "Enter your username: ";
+    cin >> inputUserName;
+
+    cout << "Enter your password: ";
+    cin >> inputPassword;
+
+
+    // Check username and password
+    for (acoomendation_listing_searching& student : students) // why you add here the &??
+    {
+        if (student.userNname == inputUserName &&
+            student.password == inputPassword)
+        {
+            // Store the student's information
+            // so other functions can use it.
+            loggedInStudent = student;  // before we did it with boolian 
+
+            cout << "\nLogin successful!" << endl;
+
+            return true;
+        }
+    }
+
+
+    cout << "\nInvalid username or password." << endl;
+
+    return false;
+}
+
+
+// ============================================================
+// View Student Profile
+// ============================================================
+
+void viewProfile(
+    acoomendation_listing_searching& loggedInStudent)
+{
+    cout << "\n==================================" << endl;
+    cout << "          Student Profile" << endl;
+    cout << "==================================" << endl;
+
+    cout << "Name        : " << loggedInStudent.name << endl;
+    cout << "Email       : " << loggedInStudent.email << endl;
+    cout << "Username    : " << loggedInStudent.userNname << endl;
+    cout << "Phone       : " << loggedInStudent.phoneNumber << endl;
+
+    cout << "==================================" << endl;
+}
+
+
+// ============================================================
+// Student Menu
+// ============================================================
+
+void studentMenu()
+{
+    string choice;
+
+    // Store all registered students
+    vector<acoomendation_listing_searching> students;
+
+    // Store the student who successfully logged in
+    acoomendation_listing_searching loggedInStudent;
+
+
+    cout << "==============================" << endl;
+    cout << "        Student Menu" << endl;
+    cout << "==============================" << endl;
+
+    cout << "1. Student Registration" << endl;
+    cout << "2. Student Login" << endl;
+    cout << "3. View Profile" << endl;
+    cout << "4. Update Profile" << endl;
+    cout << "5. Search Property" << endl;
+    cout << "6. Shortlist House" << endl;
+
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+
+    if (choice == "1")
+    {
+        student_registration(students);
+    }
+    else if (choice == "2")
+    {
+        StudentLogin(students, loggedInStudent);
+    }
+    else if (choice == "3")
+    {
+        viewProfile(loggedInStudent);
+    }
+    else
+    {
+        cout << "Invalid choice." << endl;
+    }
+}
