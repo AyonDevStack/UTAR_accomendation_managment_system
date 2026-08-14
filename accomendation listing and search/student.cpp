@@ -1,63 +1,54 @@
 #include<bits/stdc++.h>
 #include "accomedation.h"
 #include<fstream>
+#include<cstdlib>   // NEW: needed for system() to create the "data" folder
 using namespace std;
 
 // student.cpp
 
-   struct acoomendation_listing_searching
+
+bool checkName(string name)
+{
+
+    if(name.empty())
     {
-        string name;
-        string email;
-        int phoneNumber;
-        string userNname;
-        string password;
+        return false;
+    }
 
-    };
+    for(char n :  name){
 
+        if(!isalpha(n) && n !=' ')
+            return false;
 
-        bool checkName(string name)
-    {
-
-            if(name.empty())
-            {
-                return false;
-          }
-       
-          for(char n :  name){
-
-             if(!isalpha(n) && n !=' ')
-               return false;
-
-          }
-
-
-          return true;
     }
 
 
-
-
+    return true;
+}
 
 
 void student_registration()
 {
-  
-    vector<acoomendation_listing_searching>students;
+
+    // vector<acoomendation_listing_searching>students;
     acoomendation_listing_searching s;
 
     cout << " Enter your name : " << endl;
     cin >> s.name;
 
-    if(checkName(s.name))
+    // BUG FIX #1: previously, if the name was invalid, we only printed a
+    // warning but kept going and saved the bad data anyway.
+    // Now we actually stop registration when the name is invalid.
+    if(!checkName(s.name))
     {
-        cout << "please put the valid name"<< endl;
+        cout << "please put the valid name" << endl;
+        return;   // stop here instead of continuing to save
     }
 
 
     cout << " Enter your email : " << endl;
     cin >> s.email;
-    
+
 
     cout << "Enter you User Name : " << endl;
     cin >> s.userNname;
@@ -66,36 +57,72 @@ void student_registration()
     cin >> s.password;
 
 
-    cout << "Enter your Phone Number : " << endl;
-    cin >> s.phoneNumber;
+    bool validPhoneNumber;
 
-    if (isdigit(s.phoneNumber))
+    do
     {
-        cout << " it is not valid input"<<endl;
+        cout << "Enter your Phone Number: ";
+        cin >> s.phoneNumber;
+
+        validPhoneNumber = true;
+
+        for (char digit : s.phoneNumber)
+        {
+            if (!isdigit(digit))
+            {
+                validPhoneNumber = false;
+                break;
+            }
+        }
+
+        if (!validPhoneNumber)
+        {
+            cout << "Invalid phone number. Please enter numbers only." << endl;
+        }
+
+    } while (!validPhoneNumber);
+
+
+    //    students.push_back(s);
+
+
+    //  ================================================================
+    //  BUG FIX #2 (this is the real cause of "file not saving"):
+    //  ofstream does NOT create missing folders. If "data/" doesn't
+    //  exist next to the running executable, the file open silently
+    //  fails, and the old code never checked for that — it just
+    //  printed "Your details added Successfully" regardless.
+    //  ================================================================
+
+    // Make sure the "data" folder exists before we try to write into it.
+    // NOTE: std::filesystem is broken on MinGW 8.1.0 (a known compiler bug),
+    // so we use a plain system() call instead — works everywhere, no
+    // special headers needed.
+    // Folder now lives INSIDE "accomendation listing and search/data"
+    system("mkdir \"accomendation listing and search\\data\" 2> nul");
+
+    ofstream studentFile("accomendation listing and search/data/student.txt", ios::out | ios::app);
+
+    // Now we actually check whether the file opened successfully.
+    if (!studentFile.is_open())
+    {
+        cout << "ERROR: Could not open data/student.txt for writing. "
+             << "Registration was NOT saved." << endl;
+        return;
     }
 
-   students.push_back(s);
-  
-   cout << "Your details added Scuessfully ";
+    studentFile << "Name : " << s.name << endl;
+    studentFile << "Email : " << s.email << endl;
+    studentFile << "User name : " << s.userNname << endl;
+    studentFile << "PassWord : " << s.password << endl;
+    studentFile << "Phone Number : " << s.phoneNumber << endl;
 
+    studentFile << "----------------------" << endl;
 
+    studentFile.close();
 
- //    file handle system to store the data
-   
-   ofstream studentFile("data/student.tx" , ios::out | ios::app);
-
-
-   studentFile << "Name : " << s.name << endl;
-   studentFile << "Email : " << s.email << endl;
-   studentFile << "User name : " << s.userNname << endl;
-   studentFile << "PassWord : " << s.password << endl;
-   studentFile << "Phone Number : " << s.phoneNumber << endl;
-
-   studentFile << "----------------------" << endl;
-   
-   studentFile.close();
-   
-    
+    // Only print success AFTER we've actually confirmed the write happened.
+    cout << "Your details added Scuessfully" << endl;
 }
 
 
@@ -106,7 +133,7 @@ void student_registration()
 
 bool StudentLogin(
     vector<acoomendation_listing_searching>& students,
-    acoomendation_listing_searching& loggedInStudent)  
+    acoomendation_listing_searching& loggedInStudent)
 {
     string inputUserName;
     string inputPassword;
@@ -121,12 +148,12 @@ bool StudentLogin(
 
 
     // Check username and password
-    for (acoomendation_listing_searching& student : students) 
+    for (acoomendation_listing_searching& student : students)
     {
         if (student.userNname == inputUserName &&
             student.password == inputPassword)
         {
-            loggedInStudent = student; 
+            loggedInStudent = student;
             cout << "\nLogin successful!" << endl;
 
             return true;
@@ -143,20 +170,20 @@ bool StudentLogin(
 
 
 
-// view profile section start 
+// view profile section start
 
 void ProfileView( acoomendation_listing_searching& loggedInStudent)
 {
 
 
-          cout << "Register Student Profile " << endl;
+    cout << "Register Student Profile " << endl;
 
-          cout << "Name : " << loggedInStudent.name <<endl;
-          cout << "Phone Number : " << loggedInStudent.phoneNumber << endl;
-          cout << "Email : " << loggedInStudent.email << endl;
-          cout << " User Name : " << loggedInStudent.userNname << endl;
-          
-          cout << "-------------------------------\n";
+    cout << "Name : " << loggedInStudent.name <<endl;
+    cout << "Phone Number : " << loggedInStudent.phoneNumber << endl;
+    cout << "Email : " << loggedInStudent.email << endl;
+    cout << " User Name : " << loggedInStudent.userNname << endl;
+
+    cout << "-------------------------------\n";
 
 
 }
@@ -167,7 +194,7 @@ void ProfileView( acoomendation_listing_searching& loggedInStudent)
 
 
 
-// update profile start section : 
+// update profile start section :
 
 void updateProfile()
 {
@@ -222,71 +249,90 @@ void updateProfile()
 
 
     // Open the old file for reading
-    ifstream studentFile("data/student.txt");
+    ifstream studentFile("accomendation listing and search/data/student.txt");
+
+    if (!studentFile.is_open())
+    {
+        cout << "ERROR: student.txt not found. Nothing to update." << endl;
+        return;
+    }
 
     // Create a temporary file for the updated data
-    ofstream tempFile("data/temp.txt");
+    ofstream tempFile("accomendation listing and search/data/temp.txt");
 
     string line;
-
-    bool correctStudent = false;
     bool updated = false;
 
+    // ================================================================
+    // BUG FIX: the old code checked line-by-line top to bottom and only
+    // realized "this is the right student" once it hit the "User name : "
+    // line. But in the file, "User name :" comes AFTER "Email :" —
+    // so by the time the right student was recognized, the Email line
+    // (and Name line) had already been copied past unchanged.
+    //
+    // Fix: read each student's FULL record (5 lines) into a block first,
+    // check if that block belongs to the target username, THEN decide
+    // which line inside the block to update. This works regardless of
+    // what order the fields appear in.
+    // ================================================================
 
-    // Read the file line by line
+    vector<string> block;
+
     while (getline(studentFile, line))
     {
-        // Check if this is the student's username
-        if (line == "User name : " + username)
-        {
-            correctStudent = true;
-        }
-
-
-        // Change only the selected information
-        if (correctStudent && choice == 1)
-        {
-            if (line.find("Name : ") == 0)
-            {
-                line = "Name : " + newName;
-                updated = true;
-            }
-        }
-        else if (correctStudent && choice == 2)
-        {
-            if (line.find("Email : ") == 0)
-            {
-                line = "Email : " + newEmail;
-                updated = true;
-            }
-        }
-        else if (correctStudent && choice == 3)
-        {
-            if (line.find("Phone Number : ") == 0)
-            {
-                line = "Phone Number : " + newPhone;
-                updated = true;
-            }
-        }
-        else if (correctStudent && choice == 4)
-        {
-            if (line.find("Password : ") == 0)
-            {
-                line = "Password : " + newPassword;
-                updated = true;
-            }
-        }
-
-
-        // Write the line into the temporary file
-        tempFile << line << endl;
-
-
-        // When we reach the end of this student's record,
-        // stop searching for this student.
         if (line == "----------------------")
         {
-            correctStudent = false;
+            // We've collected one full student record — check if it's the one we want
+            bool isTargetStudent = false;
+
+            for (const string& blockLine : block)
+            {
+                if (blockLine == "User name : " + username)
+                {
+                    isTargetStudent = true;
+                    break;
+                }
+            }
+
+            if (isTargetStudent)
+            {
+                for (string& blockLine : block)
+                {
+                    if (choice == 1 && blockLine.find("Name : ") == 0)
+                    {
+                        blockLine = "Name : " + newName;
+                        updated = true;
+                    }
+                    else if (choice == 2 && blockLine.find("Email : ") == 0)
+                    {
+                        blockLine = "Email : " + newEmail;
+                        updated = true;
+                    }
+                    else if (choice == 3 && blockLine.find("Phone Number : ") == 0)
+                    {
+                        blockLine = "Phone Number : " + newPhone;
+                        updated = true;
+                    }
+                    else if (choice == 4 && blockLine.find("PassWord : ") == 0)
+                    {
+                        blockLine = "PassWord : " + newPassword;
+                        updated = true;
+                    }
+                }
+            }
+
+            // Write this student's block (updated or not) into the temp file
+            for (const string& blockLine : block)
+            {
+                tempFile << blockLine << endl;
+            }
+            tempFile << "----------------------" << endl;
+
+            block.clear();
+        }
+        else
+        {
+            block.push_back(line);
         }
     }
 
@@ -296,8 +342,8 @@ void updateProfile()
 
 
     // Replace the old file with the updated file
-    remove("data/student.txt");
-    rename("data/temp.txt", "data/student.txt");
+    remove("accomendation listing and search/data/student.txt");
+    rename("accomendation listing and search/data/temp.txt", "accomendation listing and search/data/student.txt");
 
 
     if (updated)
@@ -309,15 +355,30 @@ void updateProfile()
         cout << "\nStudent username not found." << endl;
     }
 }
-// Update section end section : 
+// Update section end section :
 
 
-
+// ============================================================
+// NOTE on the two functions above (StudentLogin, ProfileView):
+// Both take a vector<acoomendation_listing_searching>& students
+// (or a loggedInStudent reference) as a parameter, but nothing
+// in this program currently loads data/student.txt back into
+// such a vector. So even after this fix, Login/View/Update
+// won't have real data to work with until you add a function
+// that reads data/student.txt into a vector at startup.
+// That's a separate feature gap from today's bug, flagging it
+// so it doesn't surprise you later.
+// ============================================================
 
 
 void studentMenu()
 {
     string choice;
+
+    // Shared state so Login -> View/Update can use the same student list.
+    // (Empty for now until a "load from file" function is added — see note above.)
+    static vector<acoomendation_listing_searching> students;
+    static acoomendation_listing_searching loggedInStudent;
 
     cout << "==============================" << endl;
     cout << "       Student Menu" << endl;
@@ -339,25 +400,26 @@ void studentMenu()
     }
     else if (choice == "2")
     {
-        bool StudentLogin();
+        // BUG FIX #3: "bool StudentLogin();" was a DECLARATION, not a call.
+        // It compiled but did nothing. Now we actually call the function.
+        StudentLogin(students, loggedInStudent);
     }
 
     else if(choice == "3")
     {
-        void ProfileView();
+        // BUG FIX #4: same problem — "void ProfileView();" declared,
+        // never called. Fixed to an actual call with the right argument.
+        ProfileView(loggedInStudent);
     }
 
     else if(choice == "4")
     {
-        void updateProfile();
-
+        // BUG FIX #5: same problem — now actually calls updateProfile().
+        updateProfile();
+    }
+    else
+    {
+        cout << "Invalid choice." << endl;
     }
 
-
-
-
-
 }
-
-
-
