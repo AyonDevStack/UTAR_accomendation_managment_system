@@ -56,5 +56,6 @@ void updateProfile();
 
 void owner_main();
 void owner_registration();
+bool OwnerLogin(vector<owner_details>& owners, owner_details& ownerLogin);
 
 #endif

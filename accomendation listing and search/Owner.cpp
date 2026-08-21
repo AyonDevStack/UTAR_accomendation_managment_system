@@ -142,6 +142,57 @@ void owner_registration()
 
 
 
+// owner Login start 
+
+
+
+bool OwnerLogin(vector<owner_details>& owners, owner_details& ownerLogin)
+{
+    cout << "Add your User Name : " << endl;
+    string OwnerloginName;
+    cin >> OwnerloginName;
+
+    cout << "Add you password Name : " << endl;
+    string OwnerloginPassword;
+    cin >> OwnerloginPassword;
+
+    for (owner_details &owner : owners)
+    {
+        if (owner.OwnerUserName == OwnerloginName && owner.OwnerPassWord == OwnerloginPassword)
+        {
+            ownerLogin = owner;
+            cout << "You login successful\n";
+            return true;
+        }
+    }
+
+    cout << "\nInvalid username or password." << endl;
+    return false;
+}
+
+
+// owner login end 
+
+
+void owner_view_profile(owner_details& ownerLogin)
+{
+
+      cout << "Register Profile as a Owener : " << endl;
+
+      cout << " Name : " << ownerLogin.name << endl;
+      cout << "Email : " << ownerLogin.email << endl;
+      cout << "Phone Number : " << ownerLogin.OwnerphoneNumber << endl;
+      cout << "Address : " << ownerLogin.owner_address << endl;
+      cout << "User Name : " << ownerLogin.OwnerUserName << endl;
+
+
+
+}
+
+
+
+
+
 void owner_main(){
 
 
@@ -172,6 +223,14 @@ void owner_main(){
 
             owner_registration();
         }
+
+        else if(choice == "2")
+        {
+            bool OwnerLogin();       
+         
+        }
+
+
 
 
 
