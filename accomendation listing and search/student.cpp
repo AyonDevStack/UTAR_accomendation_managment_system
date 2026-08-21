@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #include "accomedation.h"
 #include<fstream>
-#include<cstdlib>   // NEW: needed for system() to create the "data" folder
+#include<cstdlib>   //system() to create the "data" folder
 using namespace std;
 
 // student.cpp
@@ -28,7 +28,7 @@ bool checkName(string name)
 
 
 void student_registration()
-{
+{   
 
     // vector<acoomendation_listing_searching>students;
     acoomendation_listing_searching s;
@@ -380,9 +380,9 @@ void studentMenu()
     static vector<acoomendation_listing_searching> students;
     static acoomendation_listing_searching loggedInStudent;
 
-    cout << "==============================" << endl;
+    cout << "#########################" << endl;
     cout << "       Student Menu" << endl;
-    cout << "==============================" << endl;
+    cout << "########################" << endl;
 
     cout << "1. Student Registration" << endl;
     cout << "2. Student Login" << endl;

@@ -39,9 +39,9 @@ void accommodationListingAndSearching(){
   
   else if(choice == "2")
   {
-            
+    
+    owner_main();
      
-
   }
 
 

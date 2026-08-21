@@ -19,6 +19,22 @@ struct acoomendation_listing_searching
 };
 
 
+// Owner Details structure
+
+struct owner_details
+{
+    string name;
+    string email;
+    string OwnerphoneNumber;
+    string owner_address;
+    string OwnerUserName;
+    string OwnerPassWord;
+
+
+};
+
+
+
 // Accommodation Section
 
 void accommodationListingAndSearching();
@@ -39,5 +55,6 @@ void updateProfile();
 // Owner Section
 
 void owner_main();
+void owner_registration();
 
 #endif
