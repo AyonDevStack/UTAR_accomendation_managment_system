@@ -83,22 +83,7 @@ void student_registration()
     } while (!validPhoneNumber);
 
 
-    //    students.push_back(s);
 
-
-    //  ================================================================
-    //  BUG FIX #2 (this is the real cause of "file not saving"):
-    //  ofstream does NOT create missing folders. If "data/" doesn't
-    //  exist next to the running executable, the file open silently
-    //  fails, and the old code never checked for that — it just
-    //  printed "Your details added Successfully" regardless.
-    //  ================================================================
-
-    // Make sure the "data" folder exists before we try to write into it.
-    // NOTE: std::filesystem is broken on MinGW 8.1.0 (a known compiler bug),
-    // so we use a plain system() call instead — works everywhere, no
-    // special headers needed.
-    // Folder now lives INSIDE "accomendation listing and search/data"
     system("mkdir \"accomendation listing and search\\data\" 2> nul");
 
     ofstream studentFile("accomendation listing and search/data/student.txt", ios::out | ios::app);
@@ -263,19 +248,7 @@ void updateProfile()
     string line;
     bool updated = false;
 
-    // ================================================================
-    // BUG FIX: the old code checked line-by-line top to bottom and only
-    // realized "this is the right student" once it hit the "User name : "
-    // line. But in the file, "User name :" comes AFTER "Email :" —
-    // so by the time the right student was recognized, the Email line
-    // (and Name line) had already been copied past unchanged.
-    //
-    // Fix: read each student's FULL record (5 lines) into a block first,
-    // check if that block belongs to the target username, THEN decide
-    // which line inside the block to update. This works regardless of
-    // what order the fields appear in.
-    // ================================================================
-
+ 
     vector<string> block;
 
     while (getline(studentFile, line))
@@ -358,18 +331,136 @@ void updateProfile()
 // Update section end section :
 
 
-// ============================================================
-// NOTE on the two functions above (StudentLogin, ProfileView):
-// Both take a vector<acoomendation_listing_searching>& students
-// (or a loggedInStudent reference) as a parameter, but nothing
-// in this program currently loads data/student.txt back into
-// such a vector. So even after this fix, Login/View/Update
-// won't have real data to work with until you add a function
-// that reads data/student.txt into a vector at startup.
-// That's a separate feature gap from today's bug, flagging it
-// so it doesn't surprise you later.
-// ============================================================
 
+//search property start : 
+void searchProperty()
+{
+    string keyword;
+
+    cout << "\n========== Search Property ==========" << endl;
+    cout << "Enter keyword (matches Home Name, Room Type, or Address): ";
+    cin.ignore();
+    getline(cin, keyword);
+
+    ifstream propertyFile("accomendation listing and search/data/property.txt");
+
+    if (!propertyFile.is_open())
+    {
+        cout << "ERROR: property.txt not found." << endl;
+        return;
+    }
+
+    string line;
+    vector<string> block;
+    bool foundAny = false;
+
+    while (getline(propertyFile, line))
+    {
+        if (line == "----------------------")
+        {
+            bool isMatch = false;
+
+            for (const string& blockLine : block)
+            {
+                bool isSearchableField =
+                    blockLine.find("Home Name : ") == 0 ||
+                    blockLine.find("Room Type : ") == 0 ||
+                    blockLine.find("Address : ") == 0;
+
+                if (isSearchableField && blockLine.find(keyword) != string::npos)
+                {
+                    isMatch = true;
+                    break;
+                }
+            }
+
+            if (isMatch)
+            {
+                for (const string& blockLine : block)
+                {
+                    cout << blockLine << endl;
+                }
+                cout << "----------------------" << endl;
+                foundAny = true;
+            }
+
+            block.clear();
+        }
+        else
+        {
+            block.push_back(line);
+        }
+    }
+
+    propertyFile.close();
+
+    if (!foundAny)
+    {
+        cout << "No properties matched your search." << endl;
+    }
+}
+
+
+//search property end
+
+
+
+
+
+
+//shortlisted house function start :
+
+void shortlistHouse(const string& studentUsername)
+{
+    string propertyID;
+
+    cout << "\n========== Shortlist a House ==========" << endl;
+    cout << "Enter the Property ID to shortlist: ";
+    cin >> propertyID;
+
+    // Step 1: confirm this Property ID actually exists in property.txt
+    if (!propertyIDExists(propertyID))
+    {
+        cout << "That Property ID doesn't exist. Please check and try again." << endl;
+        return;
+    }
+
+    // Step 2: save this student's shortlist entry
+    system("mkdir \"accomendation listing and search\\data\" 2> nul");
+
+    ofstream shortlistFile("accomendation listing and search/data/shortlist.txt", ios::app);
+
+    if (!shortlistFile.is_open())
+    {
+        cout << "ERROR: Could not open shortlist.txt to save your shortlist." << endl;
+        return;
+    }
+
+    shortlistFile << "Student Username : " << studentUsername << endl;
+    shortlistFile << "Property ID : " << propertyID << endl;
+    shortlistFile << "----------------------" << endl;
+
+    shortlistFile.close();
+
+    cout << "\nProperty shortlisted successfully!" << endl;
+}
+
+//shortlisted hoise function end : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// student start with menu
 
 void studentMenu()
 {
@@ -400,22 +491,29 @@ void studentMenu()
     }
     else if (choice == "2")
     {
-        // BUG FIX #3: "bool StudentLogin();" was a DECLARATION, not a call.
-        // It compiled but did nothing. Now we actually call the function.
         StudentLogin(students, loggedInStudent);
     }
 
     else if(choice == "3")
     {
-        // BUG FIX #4: same problem — "void ProfileView();" declared,
-        // never called. Fixed to an actual call with the right argument.
+        
         ProfileView(loggedInStudent);
     }
 
     else if(choice == "4")
     {
-        // BUG FIX #5: same problem — now actually calls updateProfile().
         updateProfile();
+    }
+
+    else if(choice == "5")
+    {
+        searchProperty();
+    }
+
+    else if(choice == "6")
+    {
+        shortlistHouse(const string& studentUsername);
+
     }
     else
     {
