@@ -123,12 +123,12 @@ bool StudentLogin(
     string inputUserName;
     string inputPassword;
 
-    cout << "Please Enter you user name and Password :";
+    cout << "Please Enter you user name and Password :" << endl;
 
-    cout << "Enter your username: ";
+    cout << "Enter your username: " << endl;
     cin >> inputUserName;
 
-    cout << "Enter your password: ";
+    cout << "Enter your password: " <<endl;
     cin >> inputPassword;
 
 
@@ -152,6 +152,64 @@ bool StudentLogin(
 }
 
 //student Loging part End --------
+
+//load data of login start
+// ===================== Helper: load all students from file into a vector =====================
+vector<acoomendation_listing_searching> loadStudents()
+{
+    vector<acoomendation_listing_searching> students;
+    ifstream studentFile("accomendation listing and search/data/student.txt");
+
+    if (!studentFile.is_open())
+    {
+        return students; // empty — no students registered yet
+    }
+
+    string line;
+    acoomendation_listing_searching current;
+    bool hasData = false;
+
+    while (getline(studentFile, line))
+    {
+        if (line == "----------------------")
+        {
+            if (hasData)
+            {
+                students.push_back(current);
+            }
+            current = acoomendation_listing_searching();
+            hasData = false;
+        }
+        else if (line.find("Name : ") == 0)
+        {
+            current.name = line.substr(7);
+            hasData = true;
+        }
+        else if (line.find("Email : ") == 0)
+        {
+            current.email = line.substr(8);
+        }
+        else if (line.find("User name : ") == 0)
+        {
+            current.userNname = line.substr(12);
+        }
+        else if (line.find("PassWord : ") == 0)
+        {
+            current.password = line.substr(11);
+        }
+        else if (line.find("Phone Number : ") == 0)
+        {
+            current.phoneNumber = line.substr(15);
+        }
+    }
+
+    studentFile.close();
+    return students;
+}
+
+//load data of student end 
+
+
 
 
 
@@ -193,7 +251,7 @@ void updateProfile()
 
     cout << "\n========== Update Profile ==========" << endl;
 
-    cout << "Enter your username: ";
+    cout << "Enter your username: " <<endl;
     cin >> username;
 
     cout << "\n1. Update Name" << endl;
@@ -491,7 +549,9 @@ void studentMenu()
     }
     else if (choice == "2")
     {
-        StudentLogin(students, loggedInStudent);
+        students = loadStudents();          // FIXED: load real data before checking login
+        StudentLogin(students, loggedInStudent); 
+       
     }
 
     else if(choice == "3")
@@ -512,7 +572,7 @@ void studentMenu()
 
     else if(choice == "6")
     {
-        shortlistHouse(const string& studentUsername);
+       void shortlistHouse(const string& studentUsername);
 
     }
     else
