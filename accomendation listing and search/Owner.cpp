@@ -4,79 +4,180 @@
 #include<cstdlib>   //system() to create the "data" folder
 using namespace std;
 
+// student.cpp
 
 
-
-// ===================== Helper: validate name =====================
-bool is_owner_name(string name)
+bool checkName(string name)
 {
-    if (name.empty())
+
+    if(name.empty())
     {
         return false;
     }
 
-    for (char own : name)
-    {
-        if (!isalpha(own) && own != ' ')
-        {
+    for(char n :  name){
+
+        if(!isalpha(n) && n !=' ')
             return false;
-        }
+
     }
+
 
     return true;
 }
 
 
-// ===================== Helper: check if a Property ID already exists =====================
-bool propertyIDExists(const string& propertyID)
-{
-    ifstream propertyFile("accomendation listing and search/data/property.txt");
+void student_registration()
+{   
 
-    if (!propertyFile.is_open())
+    // vector<acoomendation_listing_searching>students;
+    acoomendation_listing_searching s;
+
+    cout << " Enter your name : " << endl;
+    cin >> s.name;
+
+    // BUG FIX #1: previously, if the name was invalid, we only printed a
+    // warning but kept going and saved the bad data anyway.
+    // Now we actually stop registration when the name is invalid.
+    if(!checkName(s.name))
     {
-        return false; // no file yet = no properties yet = no duplicate possible
+        cout << "please put the valid name" << endl;
+        return;   // stop here instead of continuing to save
     }
 
-    string line;
 
-    while (getline(propertyFile, line))
+    cout << " Enter your email : " << endl;
+    cin >> s.email;
+
+
+    cout << "Enter you User Name : " << endl;
+    cin >> s.userNname;
+
+    cout << "Enter your Password : " << endl;
+    cin >> s.password;
+
+
+    bool validPhoneNumber;
+
+    do
     {
-        if (line == "Property ID : " + propertyID)
+        cout << "Enter your Phone Number: ";
+        cin >> s.phoneNumber;
+
+        validPhoneNumber = true;
+
+        for (char digit : s.phoneNumber)
         {
-            propertyFile.close();
+            if (!isdigit(digit))
+            {
+                validPhoneNumber = false;
+                break;
+            }
+        }
+
+        if (!validPhoneNumber)
+        {
+            cout << "Invalid phone number. Please enter numbers only." << endl;
+        }
+
+    } while (!validPhoneNumber);
+
+
+
+    system("mkdir \"accomendation listing and search\\data\" 2> nul");
+
+    ofstream studentFile("accomendation listing and search/data/student.txt", ios::out | ios::app);
+
+    // Now we actually check whether the file opened successfully.
+    if (!studentFile.is_open())
+    {
+        cout << "ERROR: Could not open data/student.txt for writing. "
+             << "Registration was NOT saved." << endl;
+        return;
+    }
+
+    studentFile << "Name : " << s.name << endl;
+    studentFile << "Email : " << s.email << endl;
+    studentFile << "User name : " << s.userNname << endl;
+    studentFile << "PassWord : " << s.password << endl;
+    studentFile << "Phone Number : " << s.phoneNumber << endl;
+
+    studentFile << "----------------------" << endl;
+
+    studentFile.close();
+
+    // Only print success AFTER we've actually confirmed the write happened.
+    cout << "Your details added Scuessfully" << endl;
+}
+
+
+
+
+// student Loging part
+// start --------
+
+bool StudentLogin(
+    vector<acoomendation_listing_searching>& students,
+    acoomendation_listing_searching& loggedInStudent)
+{
+    string inputUserName;
+    string inputPassword;
+
+    cout << "Please Enter you user name and Password :" << endl;
+
+    cout << "Enter your username: " << endl;
+    cin >> inputUserName;
+
+    cout << "Enter your password: " <<endl;
+    cin >> inputPassword;
+
+
+    // Check username and password
+    for (acoomendation_listing_searching& student : students)
+    {
+        if (student.userNname == inputUserName &&
+            student.password == inputPassword)
+        {
+            loggedInStudent = student;
+            cout << "\nLogin successful!" << endl;
+
             return true;
         }
     }
 
-    propertyFile.close();
+
+    cout << "\nInvalid username or password." << endl;
+
     return false;
 }
 
+//student Loging part End --------
 
-// ===================== Helper: load all owners from file into a vector =====================
-vector<owner_details> loadOwners()
+//load data of login start
+// ===================== Helper: load all students from file into a vector =====================
+vector<acoomendation_listing_searching> loadStudents()
 {
-    vector<owner_details> owners;
-    ifstream ownerFile("accomendation listing and search/data/owner.txt");
+    vector<acoomendation_listing_searching> students;
+    ifstream studentFile("accomendation listing and search/data/student.txt");
 
-    if (!ownerFile.is_open())
+    if (!studentFile.is_open())
     {
-        return owners; // empty — no owners registered yet
+        return students; // empty — no students registered yet
     }
 
     string line;
-    owner_details current;
+    acoomendation_listing_searching current;
     bool hasData = false;
 
-    while (getline(ownerFile, line))
+    while (getline(studentFile, line))
     {
         if (line == "----------------------")
         {
             if (hasData)
             {
-                owners.push_back(current);
+                students.push_back(current);
             }
-            current = owner_details();
+            current = acoomendation_listing_searching();
             hasData = false;
         }
         else if (line.find("Name : ") == 0)
@@ -88,185 +189,81 @@ vector<owner_details> loadOwners()
         {
             current.email = line.substr(8);
         }
+        else if (line.find("User name : ") == 0)
+        {
+            current.userNname = line.substr(12);
+        }
+        else if (line.find("PassWord : ") == 0)
+        {
+            current.password = line.substr(11);
+        }
         else if (line.find("Phone Number : ") == 0)
         {
-            current.OwnerphoneNumber = line.substr(15);
-        }
-        else if (line.find("Address : ") == 0)
-        {
-            current.owner_address = line.substr(10);
-        }
-        else if (line.find("User Name : ") == 0)
-        {
-            current.OwnerUserName = line.substr(12);
-        }
-        else if (line.find("Password : ") == 0)
-        {
-            current.OwnerPassWord = line.substr(11);
+            current.phoneNumber = line.substr(15);
         }
     }
 
-    ownerFile.close();
-    return owners;
+    studentFile.close();
+    return students;
 }
 
+//load data of student end 
 
-// ===================== Owner Registration =====================
-void owner_registration()
+
+
+
+
+// view profile section start
+
+void ProfileView( acoomendation_listing_searching& loggedInStudent)
 {
-    owner_details owner;
-
-    // Validate name — keep asking until valid (fixed: this used to not loop)
-    bool validName;
-    do
-    {
-        cout << "Enter your Name : ";
-        cin >> owner.name;
-
-        validName = is_owner_name(owner.name);
-
-        if (!validName)
-        {
-            cout << "Please enter a valid name (letters and spaces only)." << endl;
-        }
-
-    } while (!validName);
 
 
-    cout << "Enter your Email : " << endl;
-    cin >> owner.email;
+    cout << "Register Student Profile " << endl;
+
+    cout << "Name : " << loggedInStudent.name <<endl;
+    cout << "Phone Number : " << loggedInStudent.phoneNumber << endl;
+    cout << "Email : " << loggedInStudent.email << endl;
+    cout << " User Name : " << loggedInStudent.userNname << endl;
+
+    cout << "-------------------------------\n";
 
 
-    // Validate phone number — digits only
-    bool validOwnerPhoneNmbr;
-
-    do
-    {
-        cout << "Enter the Your Phone Number : " << endl;
-        cin >> owner.OwnerphoneNumber;
-
-        validOwnerPhoneNmbr = true;
-
-        for (char digit : owner.OwnerphoneNumber)
-        {
-            if (!isdigit(digit))
-            {
-                validOwnerPhoneNmbr = false;
-                break;
-            }
-        }
-
-        if (!validOwnerPhoneNmbr)
-        {
-            cout << "Please Enter the number only" << endl;
-        }
-
-    } while (!validOwnerPhoneNmbr);
-
-
-    // Address (can contain spaces, so use getline)
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear leftover newline/buffer
-    cout << "Enter your Address : " << endl;
-    getline(cin, owner.owner_address);
-
-
-    // Username and password
-    cout << "Enter the User Name : " << endl;
-    cin >> owner.OwnerUserName;
-
-    cout << "Enter your Strong Password : " << endl;
-    cin >> owner.OwnerPassWord;
-
-
-    // Create data folder if it doesn't exist
-    system("mkdir \"accomendation listing and search\\data\" 2> nul");
-
-    // FIXED: filename now matches what updateOwnerProfile() reads ("owner.txt")
-    ofstream OwnerFile("accomendation listing and search/data/owner.txt", ios::out | ios::app);
-
-    if (!OwnerFile.is_open())
-    {
-        cout << "Error: Could not open file to save data!" << endl;
-        return;
-    }
-
-    // FIXED: labels now match exactly what updateOwnerProfile() searches for
-    OwnerFile << "Name : " << owner.name << endl;
-    OwnerFile << "Email : " << owner.email << endl;
-    OwnerFile << "Phone Number : " << owner.OwnerphoneNumber << endl;
-    OwnerFile << "Address : " << owner.owner_address << endl;       // removed leading space
-    OwnerFile << "User Name : " << owner.OwnerUserName << endl;     // capital N to match update check
-    OwnerFile << "Password : " << owner.OwnerPassWord << endl;      // matches update check now
-
-    // FIXED: separator now matches exactly what updateOwnerProfile() checks for (22 dashes)
-    OwnerFile << "----------------------" << endl;
-    OwnerFile.close();
-
-    cout << "Your Data Successfully added " << endl;
 }
+// view profile end sections
 
 
-// ===================== Owner Login =====================
-bool OwnerLogin(vector<owner_details>& owners, owner_details& ownerLogin)
+
+
+
+
+// update profile start section :
+
+void updateProfile()
 {
-    cout << "Enter your User Name : " << endl;
-    string OwnerloginName;
-    cin >> OwnerloginName;
-
-    cout << "Enter your Password : " << endl;
-    string OwnerloginPassword;
-    cin >> OwnerloginPassword;
-
-    for (owner_details& owner : owners)
-    {
-        if (owner.OwnerUserName == OwnerloginName && owner.OwnerPassWord == OwnerloginPassword)
-        {
-            ownerLogin = owner;
-            cout << "You login successful\n";
-            return true;
-        }
-    }
-
-    cout << "\nInvalid username or password." << endl;
-    return false;
-}
-
-
-// ===================== View Profile =====================
-void owner_view_profile(owner_details& ownerLogin)
-{
-    cout << "\n===== Registered Profile (Owner) =====" << endl;
-    cout << "Name : " << ownerLogin.name << endl;
-    cout << "Email : " << ownerLogin.email << endl;
-    cout << "Phone Number : " << ownerLogin.OwnerphoneNumber << endl;
-    cout << "Address : " << ownerLogin.owner_address << endl;
-    cout << "User Name : " << ownerLogin.OwnerUserName << endl;
-}
-
-
-// ===================== Update Owner Profile =====================
-void updateOwnerProfile(const string& username)
-{
+    string username;
     int choice;
 
     string newName;
     string newEmail;
     string newPhone;
     string newPassword;
-    string newAddress;
 
     cout << "\n========== Update Profile ==========" << endl;
+
+    cout << "Enter your username: " <<endl;
+    cin >> username;
 
     cout << "\n1. Update Name" << endl;
     cout << "2. Update Email" << endl;
     cout << "3. Update Phone Number" << endl;
     cout << "4. Update Password" << endl;
-    cout << "5. Update Address" << endl;
 
     cout << "Enter your choice: ";
     cin >> choice;
-    cin.ignore(); // clear leftover newline so getline() works correctly below
 
+
+    // Get the new information
     if (choice == 1)
     {
         cout << "Enter new name: ";
@@ -287,48 +284,48 @@ void updateOwnerProfile(const string& username)
         cout << "Enter new password: ";
         cin >> newPassword;
     }
-    else if (choice == 5)
-    {
-        cout << "Enter new address: ";
-        getline(cin, newAddress);
-    }
     else
     {
         cout << "Invalid choice." << endl;
         return;
     }
 
-    ifstream ownerFile("accomendation listing and search/data/owner.txt");
 
-    if (!ownerFile.is_open())
+    // Open the old file for reading
+    ifstream studentFile("accomendation listing and search/data/student.txt");
+
+    if (!studentFile.is_open())
     {
-        cout << "ERROR: owner.txt not found. Nothing to update." << endl;
+        cout << "ERROR: student.txt not found. Nothing to update." << endl;
         return;
     }
 
-    ofstream tempFile("accomendation listing and search/data/temp_owner.txt");
+    // Create a temporary file for the updated data
+    ofstream tempFile("accomendation listing and search/data/temp.txt");
 
     string line;
     bool updated = false;
 
+ 
     vector<string> block;
 
-    while (getline(ownerFile, line))
+    while (getline(studentFile, line))
     {
         if (line == "----------------------")
         {
-            bool isTargetOwner = false;
+            // We've collected one full student record — check if it's the one we want
+            bool isTargetStudent = false;
 
             for (const string& blockLine : block)
             {
-                if (blockLine == "User Name : " + username)   // FIXED: capital N
+                if (blockLine == "User name : " + username)
                 {
-                    isTargetOwner = true;
+                    isTargetStudent = true;
                     break;
                 }
             }
 
-            if (isTargetOwner)
+            if (isTargetStudent)
             {
                 for (string& blockLine : block)
                 {
@@ -347,19 +344,15 @@ void updateOwnerProfile(const string& username)
                         blockLine = "Phone Number : " + newPhone;
                         updated = true;
                     }
-                    else if (choice == 4 && blockLine.find("Password : ") == 0)   // FIXED: matches registration label
+                    else if (choice == 4 && blockLine.find("PassWord : ") == 0)
                     {
-                        blockLine = "Password : " + newPassword;
-                        updated = true;
-                    }
-                    else if (choice == 5 && blockLine.find("Address : ") == 0)
-                    {
-                        blockLine = "Address : " + newAddress;
+                        blockLine = "PassWord : " + newPassword;
                         updated = true;
                     }
                 }
             }
 
+            // Write this student's block (updated or not) into the temp file
             for (const string& blockLine : block)
             {
                 tempFile << blockLine << endl;
@@ -374,11 +367,15 @@ void updateOwnerProfile(const string& username)
         }
     }
 
-    ownerFile.close();
+
+    studentFile.close();
     tempFile.close();
 
-    remove("accomendation listing and search/data/owner.txt");
-    rename("accomendation listing and search/data/temp_owner.txt", "accomendation listing and search/data/owner.txt");
+
+    // Replace the old file with the updated file
+    remove("accomendation listing and search/data/student.txt");
+    rename("accomendation listing and search/data/temp.txt", "accomendation listing and search/data/student.txt");
+
 
     if (updated)
     {
@@ -386,38 +383,24 @@ void updateOwnerProfile(const string& username)
     }
     else
     {
-        cout << "\nOwner username not found." << endl;
+        cout << "\nStudent username not found." << endl;
     }
 }
+// Update section end section :
 
 
-// ===================== Add Property =====================
-void addProperty(const string& ownerUsername)
+
+//search property start : 
+void searchProperty()
 {
-    string propertyID;
-    string homeName;
-    string room;
-    string roomType;
-    string address;
-    string price;
-    string description;
+    string keyword;
 
-    cout << "\n========== Add New Property ==========" << endl;
-
-    do
-    {
-        cout << "Enter Property ID (e.g. P004): ";
-        cin >> propertyID;
-
-        if (propertyIDExists(propertyID))
-        {
-            cout << "That Property ID is already taken. Please choose a different one.\n" << endl;
-        }
-
-    } while (propertyIDExists(propertyID));
-
+    cout << "\n========== Search Property ==========" << endl;
+    cout << "Enter keyword (matches Home Name, Room Type, or Address): ";
     cin.ignore();
+    getline(cin, keyword);
 
+<<<<<<< HEAD
     cout << "Enter Home Name: ";
     getline(cin, homeName);
 
@@ -775,6 +758,8 @@ void deleteProperty(const string& ownerUsername)
 // ===================== View My Properties =====================
 void viewMyProperties(const string& ownerUsername)
 {
+=======
+>>>>>>> 683b24953a4afca3309ca019cfa61d48ab034089
     ifstream propertyFile("accomendation listing and search/data/property.txt");
 
     if (!propertyFile.is_open())
@@ -787,24 +772,27 @@ void viewMyProperties(const string& ownerUsername)
     vector<string> block;
     bool foundAny = false;
 
-    cout << "\n========== My Properties ==========" << endl;
-
     while (getline(propertyFile, line))
     {
         if (line == "----------------------")
         {
-            bool isOwnedByMe = false;
+            bool isMatch = false;
 
             for (const string& blockLine : block)
             {
-                if (blockLine == "Owner Username : " + ownerUsername)
+                bool isSearchableField =
+                    blockLine.find("Home Name : ") == 0 ||
+                    blockLine.find("Room Type : ") == 0 ||
+                    blockLine.find("Address : ") == 0;
+
+                if (isSearchableField && blockLine.find(keyword) != string::npos)
                 {
-                    isOwnedByMe = true;
+                    isMatch = true;
                     break;
                 }
             }
 
-            if (isOwnedByMe)
+            if (isMatch)
             {
                 for (const string& blockLine : block)
                 {
@@ -826,119 +814,130 @@ void viewMyProperties(const string& ownerUsername)
 
     if (!foundAny)
     {
-        cout << "You have no properties listed yet." << endl;
+        cout << "No properties matched your search." << endl;
     }
 }
 
 
-// ===================== Owner Main Menu =====================
-void owner_main()
+//search property end
+
+
+
+
+
+
+//shortlisted house function start :
+
+void shortlistHouse(const string& studentUsername)
 {
-    owner_details loggedInOwner;
-    bool isLoggedIn = false;
+    string propertyID;
 
-    while (true)
+    cout << "\n========== Shortlist a House ==========" << endl;
+    cout << "Enter the Property ID to shortlist: ";
+    cin >> propertyID;
+
+    // Step 1: confirm this Property ID actually exists in property.txt
+    if (!propertyIDExists(propertyID))
     {
-        cout << "==============================" << endl;
-        cout << "       Owner Menu" << endl;
-        cout << "==============================" << endl;
-
-        cout << "1. Owner Registration" << endl;
-        cout << "2. Owner Login" << endl;
-        cout << "3. View Profile" << endl;
-        cout << "4. Update Profile" << endl;
-        cout << "5. Add Property" << endl;
-        cout << "6. Update Property" << endl;
-        cout << "7. Delete Property" << endl;
-        cout << "8. View My Properties" << endl;
-        cout << "9. Back to Main Menu" << endl;
-
-        string choice;
-        cout << "Enter your choice : ";
-        cin >> choice;
-
-            if (choice == "1")
-            {
-                owner_registration();
-            }
-            else if (choice == "2")
-            {
-                vector<owner_details> owners = loadOwners();
-                isLoggedIn = OwnerLogin(owners, loggedInOwner);
-            }
-            else if (choice == "3")
-            {
-                if (!isLoggedIn)
-                {
-                    cout << "Please login first (option 2)." << endl;
-                }
-                else
-                {
-                    owner_view_profile(loggedInOwner);
-                }
-            }
-            else if (choice == "4")
-            {
-                if (!isLoggedIn)
-                {
-                    cout << "Please login first (option 2)." << endl;
-                }
-                else
-                {
-                    updateOwnerProfile(loggedInOwner.OwnerUserName);
-                }
-            }
-            else if (choice == "5")
-            {
-                if (!isLoggedIn)
-                {
-                    cout << "Please login first (option 2)." << endl;
-                }
-                else
-                {
-                    addProperty(loggedInOwner.OwnerUserName);
-                }
-            }
-            else if (choice == "6")
-            {
-                if (!isLoggedIn)
-                {
-                    cout << "Please login first (option 2)." << endl;
-                }
-                else
-                {
-                    updateProperty(loggedInOwner.OwnerUserName);
-                }
-            }
-            else if (choice == "7")
-            {
-                if (!isLoggedIn)
-                {
-                    cout << "Please login first (option 2)." << endl;
-                }
-                else
-                {
-                    deleteProperty(loggedInOwner.OwnerUserName);
-                }
-            }
-            else if (choice == "8")
-            {
-                if (!isLoggedIn)
-                {
-                    cout << "Please login first (option 2)." << endl;
-                }
-                else
-                {
-                    viewMyProperties(loggedInOwner.OwnerUserName);
-                }
-            }
-            else if (choice == "9")
-            {
-                break; // exits the while loop, returns to whatever called owner_main()
-            }
-            else
-            {
-                cout << "Invalid choice, please try again." << endl;
-            } 
+        cout << "That Property ID doesn't exist. Please check and try again." << endl;
+        return;
     }
+
+    // Step 2: save this student's shortlist entry
+    system("mkdir \"accomendation listing and search\\data\" 2> nul");
+
+    ofstream shortlistFile("accomendation listing and search/data/shortlist.txt", ios::app);
+
+    if (!shortlistFile.is_open())
+    {
+        cout << "ERROR: Could not open shortlist.txt to save your shortlist." << endl;
+        return;
+    }
+
+    shortlistFile << "Student Username : " << studentUsername << endl;
+    shortlistFile << "Property ID : " << propertyID << endl;
+    shortlistFile << "----------------------" << endl;
+
+    shortlistFile.close();
+
+    cout << "\nProperty shortlisted successfully!" << endl;
+}
+
+//shortlisted hoise function end : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// student start with menu
+
+void studentMenu()
+{
+    string choice;
+
+    // Shared state so Login -> View/Update can use the same student list.
+    // (Empty for now until a "load from file" function is added — see note above.)
+    static vector<acoomendation_listing_searching> students;
+    static acoomendation_listing_searching loggedInStudent;
+
+    cout << "#########################" << endl;
+    cout << "       Student Menu" << endl;
+    cout << "########################" << endl;
+
+    cout << "1. Student Registration" << endl;
+    cout << "2. Student Login" << endl;
+    cout << "3. View Profile" << endl;
+    cout << "4. Update Profile" << endl;
+    cout << "5. Search Property" << endl;
+    cout << "6. Shortlist House" << endl;
+
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    if (choice == "1")
+    {
+        student_registration();
+    }
+    else if (choice == "2")
+    {
+        students = loadStudents();          // FIXED: load real data before checking login
+        StudentLogin(students, loggedInStudent); 
+       
+    }
+
+    else if(choice == "3")
+    {
+        
+        ProfileView(loggedInStudent);
+    }
+
+    else if(choice == "4")
+    {
+        updateProfile();
+    }
+
+    else if(choice == "5")
+    {
+        searchProperty();
+    }
+
+    else if(choice == "6")
+    {
+       void shortlistHouse(const string& studentUsername);
+
+    }
+    else
+    {
+        cout << "Invalid choice." << endl;
+    }
+
 }
