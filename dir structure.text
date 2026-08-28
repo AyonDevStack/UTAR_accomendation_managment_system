@@ -7,7 +7,7 @@ Accommodation_Management_System/
 │   └── data/
 │       ├── students.txt
 │       ├── properties.txt
-│       └── shortlist.txt
+│       └── owner.txt
 │
 ├── communication/
 │   ├── communication.cpp

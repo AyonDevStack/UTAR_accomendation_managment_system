@@ -1,8 +1,6 @@
 #ifndef ACCOMEDATION_H
 #define ACCOMEDATION_H
-
 #include <bits/stdc++.h>
-
 using namespace std;
 
 
@@ -45,12 +43,53 @@ struct Property
     string description;
 };
 
+
+// this is belong to the communication part.
+
+   struct Enquiry
+{
+    string enquiryID;         // changed from int → string, consistent with Property.propertyID
+    string studentUserName;
+    string ownerUserName;
+    string propertyID;
+    string message;
+    string reply;
+    bool isReplied;            
+};
+
+
+
 // Accommodation Section
 
 void accommodationListingAndSearching();
 
+//communication part
+void communication_appoitment();
+vector<acoomendation_listing_searching> loadStudents();
 
-// Student Section
+
+
+// communication Student Quary:
+void studentEnquiryMenu();
+void sendEnquiry(acoomendation_listing_searching& loggedInStudent);
+void viewMyEnquiries(acoomendation_listing_searching& loggedInStudent);
+vector<Property> loadProperties();
+vector<Enquiry> loadEnquiries();                         
+void saveEnquiries(vector<Enquiry>& enquiries); 
+
+
+
+//communication Qwnwe Quary
+void owner_main_enquire();
+vector<owner_details> loadOwners();
+// void viewEnquiriesForOwner(owner_details& ownerLogin);
+// void replyToEnquiry(owner_details& ownerLogin);
+
+
+
+
+
+// Student Section accomendation
 
 void studentMenu();
 void student_registration();
@@ -66,7 +105,6 @@ void shortlistHouse(const string& studentUsername);
 
 
 
-// Owner Section
 
 // Owner Section
 
@@ -74,7 +112,7 @@ void owner_main();
 void owner_registration();
 bool OwnerLogin(vector<owner_details>& owners, owner_details& ownerLogin);
 void owner_view_profile(owner_details& ownerLogin);
-void updateOwnerProfile();
+void updateOwnerProfile(const string& username);
 void addProperty(const string& ownerUsername);
 void updateProperty(const string& ownerUsername);
 void deleteProperty(const string& ownerUsername);

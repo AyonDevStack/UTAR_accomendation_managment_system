@@ -460,6 +460,88 @@ void addProperty(const string& ownerUsername)
 }
 
 
+
+
+
+
+
+
+
+vector<Property> loadProperties()
+{
+    vector<Property> properties;
+    ifstream propertyFile("accomendation listing and search/data/property.txt");
+
+    if (!propertyFile.is_open())
+    {
+        return properties;
+    }
+
+    string line;
+    Property current;
+    bool hasData = false;
+
+    while (getline(propertyFile, line))
+    {
+        if (line == "----------------------")
+        {
+            if (hasData)
+            {
+                properties.push_back(current);
+            }
+            current = Property();
+            hasData = false;
+        }
+        else if (line.find("Property ID : ") == 0)
+        {
+            current.propertyID = line.substr(14);
+            hasData = true;
+        }
+        else if (line.find("Owner Username : ") == 0)
+        {
+            current.ownerUsername = line.substr(18);
+        }
+        else if (line.find("Home Name : ") == 0)
+        {
+            current.homeName = line.substr(12);
+        }
+        else if (line.find("Room : ") == 0)
+        {
+            current.room = line.substr(7);
+        }
+        else if (line.find("Room Type : ") == 0)
+        {
+            current.roomType = line.substr(12);
+        }
+        else if (line.find("Address : ") == 0)
+        {
+            current.address = line.substr(10);
+        }
+        else if (line.find("Price : ") == 0)
+        {
+            current.price = line.substr(8);
+        }
+        else if (line.find("Description : ") == 0)
+        {
+            current.description = line.substr(14);
+        }
+    }
+
+    if (hasData)
+    {
+        properties.push_back(current);
+    }
+
+    propertyFile.close();
+    return properties;
+}
+
+
+
+
+
+
+
 // ===================== Update Property =====================
 void updateProperty(const string& ownerUsername)
 {

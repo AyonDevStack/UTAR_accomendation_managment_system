@@ -10,7 +10,7 @@ int main()
    ===================================================
 
      1. Accommodation Listing & Searching
-     2. Communication for Management
+     2. Communication with Owner / Students
      3. Rental Management
 )";
 
@@ -22,6 +22,11 @@ int main()
     if (choice == "1")
     {
         accommodationListingAndSearching();
+    }
+    else if(choice == "2")
+    {
+        
+        communication_appoitment();
     }
     
 
