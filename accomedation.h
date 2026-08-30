@@ -82,8 +82,8 @@ void saveEnquiries(vector<Enquiry>& enquiries);
 //communication Qwnwe Quary
 void owner_main_enquire();
 vector<owner_details> loadOwners();
-// void viewEnquiriesForOwner(owner_details& ownerLogin);
-// void replyToEnquiry(owner_details& ownerLogin);
+void viewEnquiriesForOwner(owner_details& ownerLogin);
+void replyToEnquiry(owner_details& ownerLogin);
 
 
 

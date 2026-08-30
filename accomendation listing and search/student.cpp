@@ -1,27 +1,23 @@
 #include<bits/stdc++.h>
 #include "accomedation.h"
 #include<fstream>
-#include<cstdlib>   //system() to create the "data" folder
+#include<cstdlib>
 using namespace std;
 
 // student.cpp
 
-
 bool checkName(string name)
 {
-
     if(name.empty())
     {
         return false;
     }
 
-    for(char n :  name){
-
-        if(!isalpha(n) && n !=' ')
+    for(char n : name)
+    {
+        if(!isalpha(n) && n != ' ')
             return false;
-
     }
-
 
     return true;
 }
@@ -29,33 +25,25 @@ bool checkName(string name)
 
 void student_registration()
 {   
-
-    // vector<acoomendation_listing_searching>students;
     acoomendation_listing_searching s;
 
     cout << " Enter your name : " << endl;
     cin >> s.name;
 
-    // BUG FIX #1: previously, if the name was invalid, we only printed a
-    // warning but kept going and saved the bad data anyway.
-    // Now we actually stop registration when the name is invalid.
     if(!checkName(s.name))
     {
         cout << "please put the valid name" << endl;
-        return;   // stop here instead of continuing to save
+        return;
     }
-
 
     cout << " Enter your email : " << endl;
     cin >> s.email;
-
 
     cout << "Enter you User Name : " << endl;
     cin >> s.userNname;
 
     cout << "Enter your Password : " << endl;
     cin >> s.password;
-
 
     bool validPhoneNumber;
 
@@ -82,13 +70,10 @@ void student_registration()
 
     } while (!validPhoneNumber);
 
-
-
     system("mkdir \"accomendation listing and search\\data\" 2> nul");
 
     ofstream studentFile("accomendation listing and search/data/student.txt", ios::out | ios::app);
 
-    // Now we actually check whether the file opened successfully.
     if (!studentFile.is_open())
     {
         cout << "ERROR: Could not open data/student.txt for writing. "
@@ -101,21 +86,15 @@ void student_registration()
     studentFile << "User name : " << s.userNname << endl;
     studentFile << "PassWord : " << s.password << endl;
     studentFile << "Phone Number : " << s.phoneNumber << endl;
-
     studentFile << "----------------------" << endl;
 
     studentFile.close();
 
-    // Only print success AFTER we've actually confirmed the write happened.
     cout << "Your details added Scuessfully" << endl;
 }
 
 
-
-
-// student Loging part
-// start --------
-
+// student Login part
 bool StudentLogin(
     vector<acoomendation_listing_searching>& students,
     acoomendation_listing_searching& loggedInStudent)
@@ -131,8 +110,6 @@ bool StudentLogin(
     cout << "Enter your password: " <<endl;
     cin >> inputPassword;
 
-
-    // Check username and password
     for (acoomendation_listing_searching& student : students)
     {
         if (student.userNname == inputUserName &&
@@ -140,21 +117,16 @@ bool StudentLogin(
         {
             loggedInStudent = student;
             cout << "\nLogin successful!" << endl;
-
             return true;
         }
     }
 
-
     cout << "\nInvalid username or password." << endl;
-
     return false;
 }
 
-//student Loging part End --------
 
-//load data of login start
-// ===================== Helper: load all students from file into a vector =====================
+// Load all students
 vector<acoomendation_listing_searching> loadStudents()
 {
     vector<acoomendation_listing_searching> students;
@@ -162,7 +134,7 @@ vector<acoomendation_listing_searching> loadStudents()
 
     if (!studentFile.is_open())
     {
-        return students; // empty — no students registered yet
+        return students;
     }
 
     string line;
@@ -207,37 +179,17 @@ vector<acoomendation_listing_searching> loadStudents()
     return students;
 }
 
-//load data of student end 
-
-
-
-
-
-// view profile section start
 
 void ProfileView( acoomendation_listing_searching& loggedInStudent)
 {
-
-
     cout << "Register Student Profile " << endl;
-
     cout << "Name : " << loggedInStudent.name <<endl;
     cout << "Phone Number : " << loggedInStudent.phoneNumber << endl;
     cout << "Email : " << loggedInStudent.email << endl;
     cout << " User Name : " << loggedInStudent.userNname << endl;
-
     cout << "-------------------------------\n";
-
-
 }
-// view profile end sections
 
-
-
-
-
-
-// update profile start section :
 
 void updateProfile()
 {
@@ -250,7 +202,6 @@ void updateProfile()
     string newPassword;
 
     cout << "\n========== Update Profile ==========" << endl;
-
     cout << "Enter your username: " <<endl;
     cin >> username;
 
@@ -258,12 +209,9 @@ void updateProfile()
     cout << "2. Update Email" << endl;
     cout << "3. Update Phone Number" << endl;
     cout << "4. Update Password" << endl;
-
     cout << "Enter your choice: ";
     cin >> choice;
 
-
-    // Get the new information
     if (choice == 1)
     {
         cout << "Enter new name: ";
@@ -290,8 +238,6 @@ void updateProfile()
         return;
     }
 
-
-    // Open the old file for reading
     ifstream studentFile("accomendation listing and search/data/student.txt");
 
     if (!studentFile.is_open())
@@ -300,20 +246,16 @@ void updateProfile()
         return;
     }
 
-    // Create a temporary file for the updated data
     ofstream tempFile("accomendation listing and search/data/temp.txt");
 
     string line;
     bool updated = false;
-
- 
     vector<string> block;
 
     while (getline(studentFile, line))
     {
         if (line == "----------------------")
         {
-            // We've collected one full student record — check if it's the one we want
             bool isTargetStudent = false;
 
             for (const string& blockLine : block)
@@ -352,7 +294,6 @@ void updateProfile()
                 }
             }
 
-            // Write this student's block (updated or not) into the temp file
             for (const string& blockLine : block)
             {
                 tempFile << blockLine << endl;
@@ -367,15 +308,11 @@ void updateProfile()
         }
     }
 
-
     studentFile.close();
     tempFile.close();
 
-
-    // Replace the old file with the updated file
     remove("accomendation listing and search/data/student.txt");
     rename("accomendation listing and search/data/temp.txt", "accomendation listing and search/data/student.txt");
-
 
     if (updated)
     {
@@ -386,11 +323,9 @@ void updateProfile()
         cout << "\nStudent username not found." << endl;
     }
 }
-// Update section end section :
 
 
-
-//search property start : 
+// ===================== Search Property =====================
 void searchProperty()
 {
     string keyword;
@@ -459,15 +394,6 @@ void searchProperty()
 }
 
 
-//search property end
-
-
-
-
-
-
-//shortlisted house function start :
-
 void shortlistHouse(const string& studentUsername)
 {
     string propertyID;
@@ -476,14 +402,12 @@ void shortlistHouse(const string& studentUsername)
     cout << "Enter the Property ID to shortlist: ";
     cin >> propertyID;
 
-    // Step 1: confirm this Property ID actually exists in property.txt
     if (!propertyIDExists(propertyID))
     {
         cout << "That Property ID doesn't exist. Please check and try again." << endl;
         return;
     }
 
-    // Step 2: save this student's shortlist entry
     system("mkdir \"accomendation listing and search\\data\" 2> nul");
 
     ofstream shortlistFile("accomendation listing and search/data/shortlist.txt", ios::app);
@@ -503,71 +427,62 @@ void shortlistHouse(const string& studentUsername)
     cout << "\nProperty shortlisted successfully!" << endl;
 }
 
-//shortlisted hoise function end : 
-
-
-
-
-// student start with menu
-
 void studentMenu()
 {
-    string choice;
-
-    // Shared state so Login -> View/Update can use the same student list.
-    // (Empty for now until a "load from file" function is added — see note above.)
     static vector<acoomendation_listing_searching> students;
     static acoomendation_listing_searching loggedInStudent;
+    string choice;
 
-    cout << "#########################" << endl;
-    cout << "       Student Menu" << endl;
-    cout << "########################" << endl;
-
-    cout << "1. Student Registration" << endl;
-    cout << "2. Student Login" << endl;
-    cout << "3. View Profile" << endl;
-    cout << "4. Update Profile" << endl;
-    cout << "5. Search Property" << endl;
-    cout << "6. Shortlist House" << endl;
-
-    cout << "Enter your choice: ";
-    cin >> choice;
-
-    if (choice == "1")
+    do
     {
-        student_registration();
-    }
-    else if (choice == "2")
-    {
-        students = loadStudents();          // FIXED: load real data before checking login
-        StudentLogin(students, loggedInStudent); 
-       
-    }
+        cout << "#########################" << endl;
+        cout << "       Student Menu" << endl;
+        cout << "########################" << endl;
 
-    else if(choice == "3")
-    {
-        
-        ProfileView(loggedInStudent);
-    }
+        cout << "1. Student Registration" << endl;
+        cout << "2. Student Login" << endl;
+        cout << "3. View Profile" << endl;
+        cout << "4. Update Profile" << endl;
+        cout << "5. Search Property" << endl;
+        cout << "6. Shortlist House" << endl;
+        cout << "7. Back to Main Menu" << endl;
 
-    else if(choice == "4")
-    {
-        updateProfile();
-    }
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    else if(choice == "5")
-    {
-        searchProperty();
-    }
+        if (choice == "1")
+        {
+            student_registration();
+        }
+        else if (choice == "2")
+        {
+            students = loadStudents();
+            StudentLogin(students, loggedInStudent);
+        }
+        else if(choice == "3")
+        {
+            ProfileView(loggedInStudent);
+        }
+        else if(choice == "4")
+        {
+            updateProfile();
+        }
+        else if(choice == "5")
+        {
+            searchProperty();
+        }
+        else if(choice == "6")
+        {
+            shortlistHouse(loggedInStudent.userNname);
+        }
+        else if(choice == "7")
+        {
+            cout << "Returning to main menu...\n";
+        }
+        else
+        {
+            cout << "Invalid choice." << endl;
+        }
 
-    else if(choice == "6")
-    {
-       void shortlistHouse(const string& studentUsername);
-
-    }
-    else
-    {
-        cout << "Invalid choice." << endl;
-    }
-
+    } while (choice != "7");
 }

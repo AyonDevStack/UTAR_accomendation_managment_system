@@ -10,3 +10,9 @@ User name : choo
 PassWord : choo
 Phone Number : 0127184663
 ----------------------
+Name : sinthia
+Email : ayon@gmail.com
+User name : sinthia
+PassWord : 123456
+Phone Number : 01712183925
+----------------------

@@ -1,57 +1,35 @@
-void addProperty(const string& ownerUsername)
+void replyToEnquiry(owner_details& ownerLogin)
 {
-    string propertyID;
-    string homeName;
-    string room;
-    string roomType;
-    string address;
-    string price;
-    string description;
+    vector<Enquiry> enquiries = loadEnquiries();
 
-    cout << "\n========== Add New Property ==========" << endl;
+    string targetID;
+    cout << "Enter Enquiry ID to reply to: ";
+    cin >> targetID;
 
-    cout << "Enter Property ID (e.g. P004): ";
-    cin >> propertyID;
-    cin.ignore(); // clear leftover newline before using getline() below
+    bool found = false;
 
-    cout << "Enter Home Name: ";
-    getline(cin, homeName);
-
-    cout << "Enter Room (e.g. Room 4B): ";
-    getline(cin, room);
-
-    cout << "Enter Room Type (e.g. Single Room / Master Room / Shared Room): ";
-    getline(cin, roomType);
-
-    cout << "Enter Address: ";
-    getline(cin, address);
-
-    cout << "Enter Price (e.g. RM 200): ";
-    getline(cin, price);
-
-    cout << "Enter Description: ";
-    getline(cin, description);
-
-    // Open in append mode so we ADD to the file, not overwrite existing properties
-    ofstream propertyFile("accomendation listing and search/data/property.txt", ios::app);
-
-    if (!propertyFile.is_open())
+    for (Enquiry& e : enquiries)
     {
-        cout << "ERROR: Could not open property.txt to add new property." << endl;
+        if (e.enquiryID == targetID && e.ownerUserName == ownerLogin.OwnerUserName)
+        {
+            found = true;
+
+            cout << "Student's Message: " << e.message << "\n";
+            cout << "Enter your reply: ";
+            cin.ignore();
+            getline(cin, e.reply);
+
+            e.isReplied = true;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        cout << "Enquiry ID not found, or it doesn't belong to your properties.\n";
         return;
     }
 
-    propertyFile << "Property ID : " << propertyID << endl;
-    propertyFile << "Owner Username : " << ownerUsername << endl;
-    propertyFile << "Home Name : " << homeName << endl;
-    propertyFile << "Room : " << room << endl;
-    propertyFile << "Room Type : " << roomType << endl;
-    propertyFile << "Address : " << address << endl;
-    propertyFile << "Price : " << price << endl;
-    propertyFile << "Description : " << description << endl;
-    propertyFile << "----------------------" << endl;
-
-    propertyFile.close();
-
-    cout << "\nProperty added successfully!" << endl;
+    saveEnquiries(enquiries);
+    cout << "Reply sent successfully!\n";
 }

@@ -1,8 +1,24 @@
 Enquiry ID : 1
 Student Username : choo
-Owner Username : yon
+Owner Username : n
 Property ID : P0123
 Message : Hi, is that available now??
+Reply : 
+Is Replied : 0
+----------------------
+Enquiry ID : 2
+Student Username : sinthia
+Owner Username : on
+Property ID : P0123
+Message : hi how are you
+Reply : 
+Is Replied : 0
+----------------------
+Enquiry ID : 3
+Student Username : sinthia
+Owner Username : yon
+Property ID : P0123
+Message : good
 Reply : 
 Is Replied : 0
 ----------------------
