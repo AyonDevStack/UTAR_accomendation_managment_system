@@ -3,13 +3,8 @@
 using namespace std;
 
 
-
-
-
 void communication_appoitment()
 {
-
-
   cout << R"(
   
          ######### Please do Login ######### 
@@ -21,7 +16,6 @@ void communication_appoitment()
   
   )";
 
-
      string commu_choice;
      cout << "Enter your Choice : " ;
      cin >> commu_choice;
@@ -29,12 +23,10 @@ void communication_appoitment()
      if(commu_choice == "1")
      {
           studentEnquiryMenu();
-
      }
      else if(commu_choice == "2")
      {
           owner_main_enquire();
-
      }
      else if(commu_choice == "3"){
            return; 
@@ -43,14 +35,10 @@ void communication_appoitment()
     {
         cout << "Invalid choice.\n";
     }
-
-
 }
 
 
-int main_communnication()
+void main_communnication()
 {
-
-void communication_appoitment();
-
+    communication_appoitment();
 }
