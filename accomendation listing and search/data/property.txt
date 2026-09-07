@@ -1,9 +1,10 @@
-Property ID : P0123
-Owner Username : ayon
-Home Name : Azelea House
-Room : 109
+Property ID : J103
+Owner Username : Jemes
+Home Name : Azealea
+Room : 903C
 Room Type : Whole Flate
-Address : Azelea Pangshapuri, Sungailong,Malayshia
+Address : james@gmail.com
 Price : 1000 RM
-Description : One Master room,two single room with Share Washroom
+Description : this is very gooad and close to UTAR
+Distance From UTAR : 1 km
 ----------------------

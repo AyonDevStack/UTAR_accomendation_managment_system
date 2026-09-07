@@ -16,3 +16,15 @@ User name : sinthia
 PassWord : 123456
 Phone Number : 01712183925
 ----------------------
+Name : Rafi
+Email : Ayon
+User name : ayon
+PassWord : 123456
+Phone Number : 0171218567
+----------------------
+Name : kennath
+Email : kennath@gmail.com
+User name : kennath
+PassWord : kennath
+Phone Number : 0123456789
+----------------------

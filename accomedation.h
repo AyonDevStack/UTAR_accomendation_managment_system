@@ -41,6 +41,7 @@ struct Property
     string address;
     string price;
     string description;
+    double distanceFromUTAR;   // in km, e.g. 2.5
 };
 
 
@@ -58,6 +59,33 @@ struct Property
 };
 
 
+// Rental management Area
+
+struct RentalApplication {
+    string applicationID;
+    string studentUserName;
+    string ownerUserName;
+    string propertyID;
+    string requestedStartDate;
+    string status;       // "Pending", "Approved", "Rejected"
+};
+
+struct RentalRecord {
+    string rentalID;
+    string studentUserName;
+    string ownerUserName;
+    string propertyID;
+    string startDate;
+    string endDate;
+    double monthlyRent;
+    bool isActive;
+    bool isPaid;
+};
+
+
+
+
+
 
 // Accommodation Section
 
@@ -66,6 +94,10 @@ void accommodationListingAndSearching();
 //communication part
 void communication_appoitment();
 vector<acoomendation_listing_searching> loadStudents();
+
+
+// rental and analysis part
+void mainRentalOrAnalytics(acoomendation_listing_searching& loggedInStudent);
 
 
 
@@ -99,6 +131,7 @@ bool StudentLogin(
 void updateProfile();
 void searchProperty();
 void shortlistHouse(const string& studentUsername);
+void viewMyShortlist(const string& studentUsername);
 
 
 
@@ -118,6 +151,32 @@ void updateProperty(const string& ownerUsername);
 void deleteProperty(const string& ownerUsername);
 void viewMyProperties(const string& ownerUsername);
 bool propertyIDExists(const string& propertyID);
+
+
+
+//Rental and Management & Analysis are
+
+//rental_management.cpp
+
+void mainRentalOrAnalytics(acoomendation_listing_searching& loggedInStudent);
+void rentalManagementMenu(acoomendation_listing_searching& loggedInStudent);
+void rentalAndAnalyticsEntry();
+vector<RentalApplication> loadApplications();
+void saveApplications(vector<RentalApplication>& applications);
+void applyForRental(acoomendation_listing_searching& loggedInStudent);
+
+//Rental and Management & Analysis are
+
+//analytics part
+void showTotalListings();
+void showAveragePrice();
+void showPropertyTypeBreakdown();
+void showDistanceStats();
+void showShortlistStats();
+void propertyInsightsMenu();
+
+
+
 
 
 #endif

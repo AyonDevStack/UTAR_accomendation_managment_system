@@ -427,6 +427,64 @@ void shortlistHouse(const string& studentUsername)
     cout << "\nProperty shortlisted successfully!" << endl;
 }
 
+//start of the shortlisted view
+
+void viewMyShortlist(const string& studentUsername)
+{
+    ifstream shortlistFile("accomendation listing and search/data/shortlist.txt");
+
+    if (!shortlistFile.is_open())
+    {
+        cout << "No shortlist data found yet.\n";
+        return;
+    }
+
+    string line;
+    vector<string> block;
+    bool foundAny = false;
+
+    cout << "\n========== My Shortlisted Properties ==========\n";
+
+    while (getline(shortlistFile, line))
+    {
+        if (line == "----------------------")
+        {
+            bool isMine = false;
+
+            for (const string& blockLine : block)
+            {
+                if (blockLine == "Student Username : " + studentUsername)
+                {
+                    isMine = true;
+                    break;
+                }
+            }
+
+            if (isMine)
+            {
+                for (const string& blockLine : block) cout << blockLine << endl;
+                cout << "----------------------\n";
+                foundAny = true;
+            }
+
+            block.clear();
+        }
+        else
+        {
+            block.push_back(line);
+        }
+    }
+
+    shortlistFile.close();
+
+    if (!foundAny)
+    {
+        cout << "You haven't shortlisted any properties yet.\n";
+    }
+}
+
+//end of the view shortlisted
+
 void studentMenu()
 {
     static vector<acoomendation_listing_searching> students;
@@ -434,55 +492,34 @@ void studentMenu()
     string choice;
 
     do
-    {
-        cout << "#########################" << endl;
-        cout << "       Student Menu" << endl;
-        cout << "########################" << endl;
+        {
+            cout << "#########################" << endl;
+            cout << "       Student Menu" << endl;
+            cout << "########################" << endl;
 
-        cout << "1. Student Registration" << endl;
-        cout << "2. Student Login" << endl;
-        cout << "3. View Profile" << endl;
-        cout << "4. Update Profile" << endl;
-        cout << "5. Search Property" << endl;
-        cout << "6. Shortlist House" << endl;
-        cout << "7. Back to Main Menu" << endl;
+            cout << "1. Student Registration" << endl;
+    cout << "2. Student Login" << endl;
+    cout << "3. View Profile" << endl;
+    cout << "4. Update Profile" << endl;
+    cout << "5. Search Property" << endl;
+    cout << "6. Shortlist House" << endl;
+    cout << "7. View My Shortlist" << endl;
+    cout << "8. Rental & Property Info" << endl;
+    cout << "9. Back to Main Menu" << endl;
 
-        cout << "Enter your choice: ";
-        cin >> choice;
+    cout << "Enter your choice: ";
+    cin >> choice;
 
-        if (choice == "1")
-        {
-            student_registration();
-        }
-        else if (choice == "2")
-        {
-            students = loadStudents();
-            StudentLogin(students, loggedInStudent);
-        }
-        else if(choice == "3")
-        {
-            ProfileView(loggedInStudent);
-        }
-        else if(choice == "4")
-        {
-            updateProfile();
-        }
-        else if(choice == "5")
-        {
-            searchProperty();
-        }
-        else if(choice == "6")
-        {
-            shortlistHouse(loggedInStudent.userNname);
-        }
-        else if(choice == "7")
-        {
-            cout << "Returning to main menu...\n";
-        }
-        else
-        {
-            cout << "Invalid choice." << endl;
-        }
+    if (choice == "1") { student_registration(); }
+    else if (choice == "2") { students = loadStudents(); StudentLogin(students, loggedInStudent); }
+    else if(choice == "3") { ProfileView(loggedInStudent); }
+    else if(choice == "4") { updateProfile(); }
+    else if(choice == "5") { searchProperty(); }
+    else if(choice == "6") { shortlistHouse(loggedInStudent.userNname); }
+    else if(choice == "7") { viewMyShortlist(loggedInStudent.userNname); }
+    else if(choice == "8") { mainRentalOrAnalytics(loggedInStudent); }
+    else if(choice == "9") { cout << "Returning to main menu...\n"; }
+    else { cout << "Invalid choice." << endl; }
 
-    } while (choice != "7");
+    } while (choice != "9");
 }

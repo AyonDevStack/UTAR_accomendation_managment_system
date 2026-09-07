@@ -11,7 +11,7 @@ int main()
 
      1. Accommodation Listing & Searching
      2. Communication with Owner / Students
-     3. Rental Management
+     3. Rental Management & Analytics
 )";
 
     string choice;
@@ -28,7 +28,14 @@ int main()
         
         communication_appoitment();
     }
-    
+    else if(choice == "3"){
+             rentalAndAnalyticsEntry();
+
+    }
+
+    else{
+        cout << " Invalid choice ";
+    }
 
     return 0;
 }

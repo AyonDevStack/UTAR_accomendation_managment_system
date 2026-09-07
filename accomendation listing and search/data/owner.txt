@@ -12,3 +12,17 @@ Address : Sungai long SL 1
 User Name : backham
 Password : 1234568
 ----------------------
+Name : lin
+Email : choo
+Phone Number : 0120466686
+Address : Sungai long, UTAR
+User name : lin
+PassWord : lin
+----------------------
+Name : James
+Email : james@gmail.com
+Phone Number : 01245565
+Address : Azealea, Pangshapur,Sungai Long,Malayshia
+User name : jemes
+PassWord : james
+----------------------

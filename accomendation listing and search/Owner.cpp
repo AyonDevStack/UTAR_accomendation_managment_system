@@ -233,7 +233,7 @@ void updateOwnerProfile(const string& username)
     tempFile.close();
 
     remove("accomendation listing and search/data/owner.txt");
-    rename("accomendation listing and search/data/temp_owner.txt", "accomendation listing and search/data/owner.txt");
+    rename("accomendation listing and search/datatemp_owner.txt", "accomendation listing and search/data/owner.txt");
 
     if (updated)
         cout << "\nProfile updated successfully!" << endl;
@@ -246,6 +246,7 @@ void updateOwnerProfile(const string& username)
 void addProperty(const string& ownerUsername)
 {
     string propertyID, homeName, room, roomType, address, price, description;
+    double distanceFromUTAR;
 
     cout << "\n========== Add Property ==========" << endl;
     cout << "Enter Property ID: ";
@@ -263,6 +264,8 @@ void addProperty(const string& ownerUsername)
     getline(cin, price);
     cout << "Enter Description: ";
     getline(cin, description);
+    cout << "Enter estimated distance from UTAR (in km, e.g. 2.5): ";
+    cin >> distanceFromUTAR;
 
     system("mkdir \"accomendation listing and search\\data\" 2> nul");
     ofstream propertyFile("accomendation listing and search/data/property.txt", ios::app);
@@ -281,6 +284,7 @@ void addProperty(const string& ownerUsername)
     propertyFile << "Address : " << address << endl;
     propertyFile << "Price : " << price << endl;
     propertyFile << "Description : " << description << endl;
+    propertyFile << "Distance From UTAR : " << distanceFromUTAR << " km" << endl;
     propertyFile << "----------------------" << endl;
     propertyFile.close();
 
@@ -309,14 +313,52 @@ vector<Property> loadProperties()
             current = Property();
             hasData = false;
         }
-        else if (line.find("Property ID : ") == 0) { current.propertyID = line.substr(14); hasData = true; }
-        else if (line.find("Owner Username : ") == 0) { current.ownerUsername = line.substr(18); }
-        else if (line.find("Home Name : ") == 0) { current.homeName = line.substr(12); }
-        else if (line.find("Room : ") == 0) { current.room = line.substr(7); }
-        else if (line.find("Room Type : ") == 0) { current.roomType = line.substr(12); }
-        else if (line.find("Address : ") == 0) { current.address = line.substr(10); }
-        else if (line.find("Price : ") == 0) { current.price = line.substr(8); }
-        else if (line.find("Description : ") == 0) { current.description = line.substr(14); }
+        else if (line.find("Property ID : ") == 0)
+        {
+            string label = "Property ID : ";
+            current.propertyID = (line.length() > label.length()) ? line.substr(label.length()) : "";
+            hasData = true;
+        }
+        else if (line.find("Owner Username : ") == 0)
+        {
+            string label = "Owner Username : ";
+            current.ownerUsername = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Home Name : ") == 0)
+        {
+            string label = "Home Name : ";
+            current.homeName = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Room : ") == 0)
+        {
+            string label = "Room : ";
+            current.room = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Room Type : ") == 0)
+        {
+            string label = "Room Type : ";
+            current.roomType = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Address : ") == 0)
+        {
+            string label = "Address : ";
+            current.address = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Price : ") == 0)
+        {
+            string label = "Price : ";
+            current.price = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Description : ") == 0)
+        {
+            string label = "Description : ";
+            current.description = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Distance From UTAR : ") == 0)
+        {
+            string label = "Distance From UTAR : ";
+            current.distanceFromUTAR = (line.length() > label.length()) ? stod(line.substr(label.length())) : 0.0;
+        }
     }
 
     if (hasData) properties.push_back(current);
@@ -392,14 +434,22 @@ void updateProperty(const string& ownerUsername)
 
     propertyFile.close();
     tempFile.close();
-    remove("accomendation listing and search/data/property.txt");
-    rename("accomendation listing and search/data/temp_property.txt", "accomendation listing and search/data/property.txt");
+
+    if (remove("accomendation listing and search/data/property.txt") != 0)
+    {
+        cout << "ERROR: Could not delete old property.txt.\n";
+        return;
+    }
+
+    if (rename("accomendation listing and search/data/temp_property.txt", "accomendation listing and search/data/property.txt") != 0)
+    {
+        cout << "ERROR: Could not rename temp_property.txt to property.txt.\n";
+        return;
+    }
 
     if (updated) cout << "\nProperty updated successfully!" << endl;
     else cout << "\nProperty not found, or it doesn't belong to you." << endl;
 }
-
-
 // ===================== Delete Property =====================
 void deleteProperty(const string& ownerUsername)
 {
