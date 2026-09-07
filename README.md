@@ -172,4 +172,8 @@ This project was developed for academic purposes as part of the UTAR Programming
 
 ---
 
+<<<<<<< HEAD
 **Topics:** `cpp` `c-plus-plus` `console-application` `accommodation-management-system` `student-housing` `property-management` `file-handling` `struct` `utar` `university-project` `crud-application` `cli-app`
+=======
+**Topics:** `cpp` `c-plus-plus` `console-application` `accommodation-management-system` `student-housing` `property-management` `file-handling` `struct` `utar` `university-project` `crud-application` `cli-app`
+>>>>>>> 4fb859bcbf4ae4bf0b9f3d4394f43bca517bf05d
