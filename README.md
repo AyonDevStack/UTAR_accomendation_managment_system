@@ -117,19 +117,11 @@ Accommodation App in CLI/
 git clone https://github.com/<your-org>/utar-accommodation-management-system.git
 cd utar-accommodation-management-system
 
-g++ main.cpp ^
-    "accomendation listing and search/acoomendation_listing_searching.cpp" ^
-    "accomendation listing and search/Owner.cpp" ^
-    "accomendation listing and search/student.cpp" ^
-    "communication apoitment/communication_appoitment.cpp" ^
-    "communication apoitment/owner_enquiry.cpp" ^
-    "communication apoitment/student_enquiry.cpp" ^
-    "Rental Management & Analytics/analytics_part.cpp" ^
-    "Rental Management & Analytics/main_Rental_analysisarea.cpp" ^
-    "Rental Management & Analytics/rental_management.cpp" ^
-    -o main.exe
-
-main.exe
+g++ -I. main.cpp \
+    "accomendation listing and search"/*.cpp \
+    "communication apoitment"/*.cpp \
+    "Rental Management & Analytics"/*.cpp \
+    -o main.exe && ./main.exe
 ```
 
 > On Windows `cmd`/PowerShell, quote every path containing spaces (as above). On a Unix-like shell, replace the `^` line continuations with `\`.
