@@ -56,76 +56,77 @@
         } while (choice_stu_enq != "3");
     }
 
-    vector<Enquiry> loadEnquiries()
+   vector<Enquiry> loadEnquiries()
+{
+    vector<Enquiry> enquiries;
+    ifstream enquiryFile("communication apoitment/data/communication.txt");
+
+    if (!enquiryFile.is_open())
     {
-        vector<Enquiry> enquiries;
-        ifstream enquiryFile("communication apoitment/data/communication.txt");
-
-        if (!enquiryFile.is_open())
-        {
-            return enquiries;
-        }
-
-        string line;
-        Enquiry current;
-        bool hasData = false;
-
-        while (getline(enquiryFile, line))
-        {
-            if (line == "----------------------")
-            {
-                if (hasData)
-                {
-
-                    enquiries.push_back(current);
-                }
-                current = Enquiry();
-                hasData = false;
-            }
-            else if (line.find("Enquiry ID : ") == 0)
-            {
-                current.enquiryID = line.substr(13);
-                hasData = true;
-
-            }
-            else if (line.find("Student Username : ") == 0)
-            {
-
-                current.studentUserName = line.substr(19);
-
-            }
-            else if (line.find("Owner Username : ") == 0)
-            {
-
-                current.ownerUserName = line.substr(18);
-
-            }
-            else if (line.find("Property ID : ") == 0)
-            {
-                current.propertyID = line.substr(14);
-            }
-            else if (line.find("Message : ") == 0)
-            {
-                current.message = line.substr(10);
-            }
-            else if (line.find("Reply : ") == 0)
-            {
-                current.reply = line.substr(8);
-            }
-            else if (line.find("Is Replied : ") == 0)
-            {
-                current.isReplied = (line.substr(13) == "1");
-            }
-        }
-
-        if (hasData)
-        {
-            enquiries.push_back(current);
-        }
-
-        enquiryFile.close();
         return enquiries;
     }
+
+    string line;
+    Enquiry current;
+    bool hasData = false;
+
+    while (getline(enquiryFile, line))
+    {
+        if (line == "----------------------")
+        {
+            if (hasData)
+            {
+                enquiries.push_back(current);
+            }
+            current = Enquiry();
+            hasData = false;
+        }
+        else if (line.find("Enquiry ID : ") == 0)
+        {
+            string label = "Enquiry ID : ";
+            current.enquiryID = (line.length() > label.length()) ? line.substr(label.length()) : "";
+            hasData = true;
+        }
+        else if (line.find("Student Username : ") == 0)
+        {
+            string label = "Student Username : ";
+            current.studentUserName = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Owner Username : ") == 0)
+        {
+            string label = "Owner Username : ";
+            current.ownerUserName = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Property ID : ") == 0)
+        {
+            string label = "Property ID : ";
+            current.propertyID = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Message : ") == 0)
+        {
+            string label = "Message : ";
+            current.message = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Reply : ") == 0)
+        {
+            string label = "Reply : ";
+            current.reply = (line.length() > label.length()) ? line.substr(label.length()) : "";
+        }
+        else if (line.find("Is Replied : ") == 0)
+        {
+            string label = "Is Replied : ";
+            current.isReplied = (line.length() > label.length()) ? (line.substr(label.length()) == "1") : false;
+        }
+    }
+
+    if (hasData)
+    {
+        enquiries.push_back(current);
+    }
+
+    enquiryFile.close();
+    return enquiries;
+}
 
     void saveEnquiries(vector<Enquiry>& enquiries)
     {

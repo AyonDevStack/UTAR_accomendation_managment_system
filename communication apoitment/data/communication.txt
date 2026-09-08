@@ -1,6 +1,6 @@
 Enquiry ID : 1
 Student Username : choo
-Owner Username : n
+Owner Username : 
 Property ID : P0123
 Message : Hi, is that available now??
 Reply : 
@@ -8,7 +8,7 @@ Is Replied : 0
 ----------------------
 Enquiry ID : 2
 Student Username : sinthia
-Owner Username : on
+Owner Username : n
 Property ID : P0123
 Message : hi how are you
 Reply : 
@@ -16,9 +16,17 @@ Is Replied : 0
 ----------------------
 Enquiry ID : 3
 Student Username : sinthia
-Owner Username : yon
+Owner Username : on
 Property ID : P0123
 Message : good
+Reply : 
+Is Replied : 0
+----------------------
+Enquiry ID : 4
+Student Username : rafi
+Owner Username : 
+Property ID : W100
+Message : i need this room, what is the price?
 Reply : 
 Is Replied : 0
 ----------------------

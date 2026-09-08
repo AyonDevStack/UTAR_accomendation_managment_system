@@ -8,3 +8,13 @@ Price : 1000 RM
 Description : this is very gooad and close to UTAR
 Distance From UTAR : 1 km
 ----------------------
+Property ID : W100
+Owner Username :why
+Home Name : Azeala Panshapuri, Sungai Long,
+Room : 90C
+Room Type : whole flate
+Address : Azeala Panshapuri, Road :09, Houese 10, Sungai Long
+Price : 1000 Rm
+Description : this is very nice
+Distance From UTAR : 1 km
+----------------------

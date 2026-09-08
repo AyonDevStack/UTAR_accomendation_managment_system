@@ -35,7 +35,6 @@ void saveApplications(vector<RentalApplication>& applications)
 
 
 //this is for application form,
-//start
 vector<RentalApplication> loadApplications()
 {
     vector<RentalApplication> applications;
@@ -63,28 +62,34 @@ vector<RentalApplication> loadApplications()
         }
         else if (line.find("Application ID : ") == 0)
         {
-            current.applicationID = line.substr(18);
+            string label = "Application ID : ";
+            current.applicationID = (line.length() > label.length()) ? line.substr(label.length()) : "";
             hasData = true;
         }
         else if (line.find("Student Username : ") == 0)
         {
-            current.studentUserName = line.substr(19);
+            string label = "Student Username : ";
+            current.studentUserName = (line.length() > label.length()) ? line.substr(label.length()) : "";
         }
         else if (line.find("Owner Username : ") == 0)
         {
-            current.ownerUserName = line.substr(18);
+            string label = "Owner Username : ";
+            current.ownerUserName = (line.length() > label.length()) ? line.substr(label.length()) : "";
         }
         else if (line.find("Property ID : ") == 0)
         {
-            current.propertyID = line.substr(14);
+            string label = "Property ID : ";
+            current.propertyID = (line.length() > label.length()) ? line.substr(label.length()) : "";
         }
         else if (line.find("Requested Start Date : ") == 0)
         {
-            current.requestedStartDate = line.substr(24);
+            string label = "Requested Start Date : ";
+            current.requestedStartDate = (line.length() > label.length()) ? line.substr(label.length()) : "";
         }
         else if (line.find("Status : ") == 0)
         {
-            current.status = line.substr(9);
+            string label = "Status : ";
+            current.status = (line.length() > label.length()) ? line.substr(label.length()) : "";
         }
     }
 
@@ -96,8 +101,6 @@ vector<RentalApplication> loadApplications()
     appFile.close();
     return applications;
 }
-
-//end
 
 
 

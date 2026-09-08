@@ -1,0 +1,7 @@
+Application ID : 1
+Student Username : rafi
+Owner Username : 
+Property ID : W100
+Requested Start Date : 
+Status : Pending
+----------------------

@@ -9,9 +9,10 @@ void owner_registration()
 {
     owner_details o;
 
-    cout << "Enter your name: " << endl;
-    cin >> o.name;
-
+     cout << "Enter your name: " << endl;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    getline(cin, o.name);
+    
     cout << "Enter your email: " << endl;
     cin >> o.email;
 

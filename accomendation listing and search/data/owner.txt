@@ -26,3 +26,17 @@ Address : Azealea, Pangshapur,Sungai Long,Malayshia
 User name : jemes
 PassWord : james
 ----------------------
+Name : why
+Email : Lin
+Phone Number : 0122243243
+Address : Azealea 2, Pangshapuri Sungai Long
+User name : why
+PassWord : why
+----------------------
+Name : Lobak
+Email : lobak@gamil.com
+Phone Number : 071212324
+Address : flora,night angel hose,Sungai long
+User name : lobak
+PassWord : lobak
+----------------------
