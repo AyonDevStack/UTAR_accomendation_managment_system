@@ -5,3 +5,17 @@ Property ID : W100
 Requested Start Date : 
 Status : Pending
 ----------------------
+Application ID : 2
+Student Username : mdayon
+Owner Username : kelwin
+Property ID : K100
+Requested Start Date : 9/9/2026
+Status : Pending
+----------------------
+Application ID : 3
+Student Username : mdayon
+Owner Username : kelwin
+Property ID : K100
+Requested Start Date : 9/10/2026
+Status : Pending
+----------------------

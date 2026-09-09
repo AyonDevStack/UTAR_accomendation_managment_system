@@ -1,27 +1,41 @@
-Accommodation_Management_System/
+Accommodation App in CLI system
 │
+├── accommodation listing and search
+│   ├── data
+│   │   ├── owner.txt
+│   │   ├── property.txt
+│   │   ├── shortlist.txt
+│   │   └── student.txt
+│   └── output
+│       ├── accommodation_listing_searching.cpp
+│       ├── Owner.cpp
+│       └── student.cpp
+│
+├── communication apoitment
+│   ├── data
+│   │   └── communication.txt
+│   └── output
+│       ├── communication_appointment.cpp
+│       ├── owner_enquiry.cpp
+│       └── student_enquiry.cpp
+│
+├── output
+│   ├── main.exe
+│   └── test.exe
+│
+├── rental management
+│   └── data
+│       └── rental_applications.txt
+│
+├── Rental Management & Analytics
+│   ├── analytics_part.cpp
+│   ├── main_Rental_analysare.cpp
+│   └── rental_management.cpp
+│
+├── .editorconfig
+├── Accommodation.h
+├── app.exe
+├── dir.structure.txt
 ├── main.cpp
-│
-├── accommodation listing and search/
-│   ├── accommodation_listing_searching.cpp
-│   └── data/
-│       ├── students.txt
-│       ├── properties.txt
-│       └── owner.txt
-│
-├── communication/
-│   ├── communication.cpp
-│   └── data/
-│       ├── messages.txt
-│       └── appointments.txt
-│
-├── rental/
-│   ├── rental.cpp
-│   └── data/
-│       ├── rentals.txt
-│       └── payments.txt
-│
-└── include/
-    ├── accommodation.h
-    ├── communication.h
-    └── rental.h
+├── main.exe
+└── README.md

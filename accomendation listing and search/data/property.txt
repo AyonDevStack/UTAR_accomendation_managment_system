@@ -18,3 +18,13 @@ Price : 1000 Rm
 Description : this is very nice
 Distance From UTAR : 1 km
 ----------------------
+Property ID : K100
+Owner Username : kelwin
+Home Name : Flora green Accomendation,Sungai Long
+Room : 303C
+Room Type : Entire Flate
+Address : Flora Green, Near to UTAR,
+Price : 1000 RM
+Description : this is opposite to UTAR,this is good
+Distance From UTAR : 100 km
+----------------------

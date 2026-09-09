@@ -27,8 +27,9 @@ void student_registration()
 {   
     acoomendation_listing_searching s;
 
-    cout << " Enter your name : " << endl;
-    cin >> s.name;
+     cout << " Enter your name : " << endl;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    getline(cin, s.name);
 
     if(!checkName(s.name))
     {

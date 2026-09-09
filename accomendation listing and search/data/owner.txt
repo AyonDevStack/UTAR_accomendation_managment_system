@@ -40,3 +40,10 @@ Address : flora,night angel hose,Sungai long
 User name : lobak
 PassWord : lobak
 ----------------------
+Name : kelwin Tan
+Email : kelwin@gmail.com
+Phone Number : 98745632
+Address : UTAR Residence,Flora garden,Sungain Long 
+User name : kelwin
+PassWord : kelwin
+----------------------

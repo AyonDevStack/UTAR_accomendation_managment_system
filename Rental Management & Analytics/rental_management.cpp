@@ -104,7 +104,30 @@ vector<RentalApplication> loadApplications()
 
 
 
+void viewApplicationsForOwner(owner_details& ownerLogin)
+{
+    vector<RentalApplication> applications = loadApplications();
+    bool found = false;
 
+    for (RentalApplication& a : applications)
+    {
+        if (a.ownerUserName == ownerLogin.OwnerUserName)
+        {
+            found = true;
+            cout << "----------------------\n";
+            cout << "Application ID : " << a.applicationID << "\n";
+            cout << "Property ID    : " << a.propertyID << "\n";
+            cout << "Student        : " << a.studentUserName << "\n";
+            cout << "Start Date     : " << a.requestedStartDate << "\n";
+            cout << "Status         : " << a.status << "\n";
+        }
+    }
+
+    if (!found)
+    {
+        cout << "No rental applications found for your properties.\n";
+    }
+}
 
 
 
@@ -169,17 +192,68 @@ void applyForRental(acoomendation_listing_searching& loggedInStudent)
     cout << "Rental application submitted successfully! Status: Pending\n";
 }
 //end
+void mainRentalOrAnalyticsOwner(owner_details& loggedInOwner)
+{
+    string choice;
+
+    do
+    {
+        cout << "\n===== Rental & Property Info (Owner) =====\n";
+        cout << "1. View Rental Applications for My Properties\n";
+        cout << "2. Property Insights & Statistics\n";
+        cout << "3. Back to Main Menu\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if (choice == "1")
+        {
+               viewApplicationsForOwner(loggedInOwner);
+
+        }
+        else if (choice == "2")
+        {
+            propertyInsightsMenu();
+        }
+        else if (choice == "3")
+        {
+            cout << "Returning to main menu...\n";
+        }
+        else
+        {
+            cout << "Invalid choice.\n";
+        }
+
+    } while (choice != "3");
+}
 
 void rentalAndAnalyticsEntry()
 {
-    vector<acoomendation_listing_searching> students = loadStudents();
-    acoomendation_listing_searching loggedInStudent;
-    bool loginSuccess = StudentLogin(students, loggedInStudent);
+    string userType;
+    cout << "\n1. Student\n2. Owner\nWho are you: ";
+    cin >> userType;
 
-    if (!loginSuccess)
+    if (userType == "1")
     {
-        return;
-    }
+        vector<acoomendation_listing_searching> students = loadStudents();
+        acoomendation_listing_searching loggedInStudent;
+        bool loginSuccess = StudentLogin(students, loggedInStudent);
 
-    mainRentalOrAnalytics(loggedInStudent);
+        if (!loginSuccess) return;
+
+        mainRentalOrAnalytics(loggedInStudent);
+    }
+    else if (userType == "2")
+    {
+        vector<owner_details> owners = loadOwners();
+        owner_details loggedInOwner;
+        bool loginSuccess = OwnerLogin(owners, loggedInOwner);
+
+        if (!loginSuccess) return;
+
+        mainRentalOrAnalyticsOwner(loggedInOwner);
+    }
+    else
+    {
+        cout << "Invalid choice.\n";
+    }
 }

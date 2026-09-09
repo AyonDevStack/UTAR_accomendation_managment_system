@@ -232,14 +232,18 @@ void updateOwnerProfile(const string& username)
 
     ownerFile.close();
     tempFile.close();
-
     remove("accomendation listing and search/data/owner.txt");
-    rename("accomendation listing and search/datatemp_owner.txt", "accomendation listing and search/data/owner.txt");
 
-    if (updated)
-        cout << "\nProfile updated successfully!" << endl;
-    else
-        cout << "\nOwner username not found." << endl;
+        if (rename("accomendation listing and search/data/temp_owner.txt", "accomendation listing and search/data/owner.txt") != 0)
+        {
+            cout << "ERROR: Could not rename temp_owner.txt to owner.txt.\n";
+            return;
+        }
+
+        if (updated)
+            cout << "\nProfile updated successfully!" << endl;
+        else
+            cout << "\nOwner username not found." << endl;
 }
 
 
@@ -558,6 +562,7 @@ bool propertyIDExists(const string& propertyID)
 
 
 // ===================== Owner Main Menu =====================
+// ===================== Owner Main Menu =====================
 void owner_main()
 {
     string choice;
@@ -565,57 +570,66 @@ void owner_main()
     static vector<owner_details> owners;
     static owner_details ownerLogin;
 
-    cout << "#########################" << endl;
-    cout << "       Owner Menu" << endl;
-    cout << "#########################" << endl;
+    do
+    {
+        cout << "#########################" << endl;
+        cout << "       Owner Menu" << endl;
+        cout << "#########################" << endl;
 
-    cout << "1. Owner Registration" << endl;
-    cout << "2. Owner Login" << endl;
-    cout << "3. View Profile" << endl;
-    cout << "4. Update Profile" << endl;
-    cout << "5. Add Property" << endl;
-    cout << "6. Update Property" << endl;
-    cout << "7. Delete Property" << endl;
-    cout << "8. View My Properties" << endl;
+        cout << "1. Owner Registration" << endl;
+        cout << "2. Owner Login" << endl;
+        cout << "3. View Profile" << endl;
+        cout << "4. Update Profile" << endl;
+        cout << "5. Add Property" << endl;
+        cout << "6. Update Property" << endl;
+        cout << "7. Delete Property" << endl;
+        cout << "8. View My Properties" << endl;
+        cout << "9. Back to Main Menu" << endl;
 
-    cout << "Enter your choice: ";
-    cin >> choice;
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    if (choice == "1")
-    {
-        owner_registration();
-    }
-    else if (choice == "2")
-    {
-        owners = loadOwners();
-        OwnerLogin(owners, ownerLogin);
-    }
-    else if (choice == "3")
-    {
-        owner_view_profile(ownerLogin);
-    }
-    else if (choice == "4")
-    {
-        updateOwnerProfile(ownerLogin.OwnerUserName);
-    }
-    else if (choice == "5")
-    {
-        addProperty(ownerLogin.OwnerUserName);
-    }
-    else if (choice == "6")
-    {
-        updateProperty(ownerLogin.OwnerUserName);
-    }
-    else if (choice == "7")
-    {
-        deleteProperty(ownerLogin.OwnerUserName);
-    }
-    else if (choice == "8")
-    {
-        viewMyProperties(ownerLogin.OwnerUserName);
-    }
-    else
-    {
-        cout << "Invalid choice." << endl;
-    }
+        if (choice == "1")
+        {
+            owner_registration();
+        }
+        else if (choice == "2")
+        {
+            owners = loadOwners();
+            OwnerLogin(owners, ownerLogin);
+        }
+        else if (choice == "3")
+        {
+            owner_view_profile(ownerLogin);
+        }
+        else if (choice == "4")
+        {
+            updateOwnerProfile(ownerLogin.OwnerUserName);
+        }
+        else if (choice == "5")
+        {
+            addProperty(ownerLogin.OwnerUserName);
+        }
+        else if (choice == "6")
+        {
+            updateProperty(ownerLogin.OwnerUserName);
+        }
+        else if (choice == "7")
+        {
+            deleteProperty(ownerLogin.OwnerUserName);
+        }
+        else if (choice == "8")
+        {
+            viewMyProperties(ownerLogin.OwnerUserName);
+        }
+        else if (choice == "9")
+        {
+            cout << "Returning to Main Menu...\n";
+        }
+        else
+        {
+            cout << "Invalid choice." << endl;
+        }
+
+    } while (choice != "9");
 }

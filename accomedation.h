@@ -154,16 +154,20 @@ bool propertyIDExists(const string& propertyID);
 
 
 
+
 //Rental and Management & Analysis are
 
 //rental_management.cpp
 
 void mainRentalOrAnalytics(acoomendation_listing_searching& loggedInStudent);
-void rentalManagementMenu(acoomendation_listing_searching& loggedInStudent);
+void mainRentalOrAnalyticsOwner(owner_details& loggedInOwner);
+//void rentalManagementMenu(acoomendation_listing_searching& loggedInStudent);
+void viewApplicationsForOwner(owner_details& ownerLogin);
 void rentalAndAnalyticsEntry();
 vector<RentalApplication> loadApplications();
 void saveApplications(vector<RentalApplication>& applications);
 void applyForRental(acoomendation_listing_searching& loggedInStudent);
+
 
 //Rental and Management & Analysis are
 

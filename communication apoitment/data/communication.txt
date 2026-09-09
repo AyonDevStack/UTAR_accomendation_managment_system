@@ -1,32 +1,24 @@
 Enquiry ID : 1
-Student Username : choo
-Owner Username : 
-Property ID : P0123
-Message : Hi, is that available now??
-Reply : 
-Is Replied : 0
+Student Username : mdayon
+Owner Username : kelwin
+Property ID : K100
+Message : hi is this avaibale?
+Reply : yes this available
+Is Replied : 1
 ----------------------
 Enquiry ID : 2
-Student Username : sinthia
-Owner Username : n
-Property ID : P0123
-Message : hi how are you
-Reply : 
-Is Replied : 0
+Student Username : mdayon
+Owner Username : kelwin
+Property ID : K100
+Message : what is the price
+Reply : 100 RM fixed
+Is Replied : 1
 ----------------------
 Enquiry ID : 3
-Student Username : sinthia
-Owner Username : on
-Property ID : P0123
-Message : good
-Reply : 
-Is Replied : 0
-----------------------
-Enquiry ID : 4
-Student Username : rafi
-Owner Username : 
-Property ID : W100
-Message : i need this room, what is the price?
-Reply : 
-Is Replied : 0
+Student Username : mdayon
+Owner Username : kelwin
+Property ID : K100
+Message : ok..confirm this
+Reply : ok,,,confirm..012134343 what'sapp me
+Is Replied : 1
 ----------------------
