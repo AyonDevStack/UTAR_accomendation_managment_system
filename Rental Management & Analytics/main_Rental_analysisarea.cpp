@@ -2,7 +2,7 @@
 #include "accomedation.h"
 using namespace std;
 
-
+//this is the main function for rental management
 void mainRentalOrAnalytics(acoomendation_listing_searching& loggedInStudent)
 {
     string choice;

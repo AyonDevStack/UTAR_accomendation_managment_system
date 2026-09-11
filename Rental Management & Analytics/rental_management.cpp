@@ -192,6 +192,9 @@ void applyForRental(acoomendation_listing_searching& loggedInStudent)
     cout << "Rental application submitted successfully! Status: Pending\n";
 }
 //end
+
+
+//this is the main function that work as a main
 void mainRentalOrAnalyticsOwner(owner_details& loggedInOwner)
 {
     string choice;

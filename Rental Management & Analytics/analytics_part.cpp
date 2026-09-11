@@ -3,6 +3,8 @@
 using namespace std;
 
 
+
+//show the total list
 void showTotalListings()
 {
     vector<Property> properties = loadProperties();
@@ -10,7 +12,7 @@ void showTotalListings()
     cout << "Total number of properties listed: " << properties.size() << "\n";
 }
 
-
+//that is the show average the price
 void showAveragePrice()
 {
     vector<Property> properties = loadProperties();
@@ -35,6 +37,7 @@ void showAveragePrice()
 }
 
 
+//what kind of room need , this work for this
 void showPropertyTypeBreakdown()
 {
     vector<Property> properties = loadProperties();
@@ -58,6 +61,8 @@ void showPropertyTypeBreakdown()
         cout << pair.first << " : " << pair.second << " listing(s)\n";
     }
 }
+
+//show the distances
 
 void showDistanceStats()
 {
@@ -92,6 +97,7 @@ void showDistanceStats()
     cout << "Farthest property : " << farthest << " km\n";
 }
 
+//this show shortlisted
 void showShortlistStats()
 {
     ifstream shortlistFile("accomendation listing and search/data/shortlist.txt");

@@ -3,6 +3,7 @@
 
     using namespace std;
 
+     //this is the main enquire 
     void studentEnquiryMenu()
     {
         vector<acoomendation_listing_searching> students = loadStudents();
@@ -56,6 +57,7 @@
         } while (choice_stu_enq != "3");
     }
 
+  //load the enquire to show the users
    vector<Enquiry> loadEnquiries()
 {
     vector<Enquiry> enquiries;
@@ -127,6 +129,8 @@
     enquiryFile.close();
     return enquiries;
 }
+
+//this is the formate to save the enquires
 
     void saveEnquiries(vector<Enquiry>& enquiries)
     {
