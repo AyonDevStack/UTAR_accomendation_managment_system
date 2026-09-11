@@ -5,19 +5,19 @@ Accommodation App in CLI system
 │   │   ├── owner.txt
 │   │   ├── property.txt
 │   │   ├── shortlist.txt
-│   │   └── student.txt
-│   └── output
-│       ├── accommodation_listing_searching.cpp
+│       └── student.txt
+│   
+│   ├── accommodation_listing_searching.cpp
 │       ├── Owner.cpp
 │       └── student.cpp
 │
 ├── communication apoitment
 │   ├── data
-│   │   └── communication.txt
-│   └── output
-│       ├── communication_appointment.cpp
-│       ├── owner_enquiry.cpp
-│       └── student_enquiry.cpp
+│     └── communication.txt
+│    
+│   ├── communication_appointment.cpp
+│   ├── owner_enquiry.cpp
+│   └── student_enquiry.cpp
 │
 ├── output
 │   ├── main.exe
