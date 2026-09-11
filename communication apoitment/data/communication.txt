@@ -1,24 +1,120 @@
 Enquiry ID : 1
-Student Username : mdayon
-Owner Username : kelwin
-Property ID : K100
-Message : hi is this avaibale?
-Reply : yes this available
+Student Username : ryanfoo
+Owner Username : sitihajar
+Property ID : SIT376
+Message : What is the minimum rental period?
+Reply : The minimum rental period is six months.
 Is Replied : 1
 ----------------------
 Enquiry ID : 2
-Student Username : mdayon
-Owner Username : kelwin
-Property ID : K100
-Message : what is the price
-Reply : 100 RM fixed
-Is Replied : 1
+Student Username : nicholasho
+Owner Username : weijian88
+Property ID : WEI852
+Message : Does the property have WiFi?
+Reply : 
+Is Replied : 0
 ----------------------
 Enquiry ID : 3
-Student Username : mdayon
-Owner Username : kelwin
-Property ID : K100
-Message : ok..confirm this
-Reply : ok,,,confirm..012134343 what'sapp me
+Student Username : kennethchua403
+Owner Username : ayon
+Property ID : AYN443
+Message : Hi, is this property still available?
+Reply : Yes, the property is still available.
+Is Replied : 1
+----------------------
+Enquiry ID : 4
+Student Username : evanlow
+Owner Username : why
+Property ID : WHY836
+Message : Are utilities included in the rental price?
+Reply : 
+Is Replied : 0
+----------------------
+Enquiry ID : 5
+Student Username : joshuakwan
+Owner Username : ahmadfaiz
+Property ID : AHM927
+Message : Is this property suitable for two students?
+Reply : Yes, two students can stay in the property.
+Is Replied : 1
+----------------------
+Enquiry ID : 6
+Student Username : adrianchew
+Owner Username : irfanm
+Property ID : IRF743
+Message : Is there a washing machine provided?
+Reply : 
+Is Replied : 0
+----------------------
+Enquiry ID : 7
+Student Username : benjamintan
+Owner Username : wong77
+Property ID : WPK728
+Message : Is the rental price negotiable?
+Reply : Yes, the rental price can be discussed.
+Is Replied : 1
+----------------------
+Enquiry ID : 8
+Student Username : gabrielong
+Owner Username : lobak
+Property ID : LOB362
+Message : Can I arrange a viewing for this property?
+Reply : Yes, you can arrange a viewing. Please let me know your preferred date.
+Is Replied : 1
+----------------------
+Enquiry ID : 9
+Student Username : darrenkhoo
+Owner Username : james
+Property ID : JME214
+Message : How far is this property from UTAR?
+Reply : It is approximately 1.7 km from UTAR.
+Is Replied : 1
+----------------------
+Enquiry ID : 10
+Student Username : seantoh
+Owner Username : junhao90
+Property ID : JUN549
+Message : Can I visit the property this weekend?
+Reply : Yes, Saturday afternoon is available.
+Is Replied : 1
+----------------------
+Enquiry ID : 11
+Student Username : isaacteh
+Owner Username : jeremylin
+Property ID : JER418
+Message : What is the minimum rental period?
+Reply : 
+Is Replied : 0
+----------------------
+Enquiry ID : 12
+Student Username : bryangoh
+Owner Username : meiling77
+Property ID : MEI218
+Message : Can I confirm the property if I am interested?
+Reply : Yes, you can contact me to arrange the booking.
+Is Replied : 1
+----------------------
+Enquiry ID : 13
+Student Username : calvinng
+Owner Username : lin
+Property ID : LIN591
+Message : Is the property fully furnished?
+Reply : Yes, the property is fully furnished.
+Is Replied : 1
+----------------------
+Enquiry ID : 14
+Student Username : henrycheong
+Owner Username : chadwong77
+Property ID : CHD705
+Message : Is parking available for tenants?
+Reply : Yes, one parking space is available.
+Is Replied : 1
+----------------------
+Enquiry ID : 15
+Student Username : marcusyeo
+Owner Username : nuraina
+Property ID : NUR634
+Message : Is this property available next month?
+Reply : Yes, it should be available next month.
 Is Replied : 1
 ----------------------

@@ -1,21 +1,106 @@
+
 Application ID : 1
-Student Username : rafi
-Owner Username : 
-Property ID : W100
-Requested Start Date : 
+Student Username : ryanfoo
+Owner Username : sitihajar
+Property ID : SIT376
+Requested Start Date : 15/10/2026
 Status : Pending
 ----------------------
 Application ID : 2
-Student Username : mdayon
-Owner Username : kelwin
-Property ID : K100
-Requested Start Date : 9/9/2026
-Status : Pending
+Student Username : kennethchua403
+Owner Username : ayon
+Property ID : AYN443
+Requested Start Date : 01/11/2026
+Status : Approved
 ----------------------
 Application ID : 3
-Student Username : mdayon
-Owner Username : kelwin
-Property ID : K100
-Requested Start Date : 9/10/2026
+Student Username : nicholasho
+Owner Username : weijian88
+Property ID : WEI852
+Requested Start Date : 20/10/2026
 Status : Pending
+----------------------
+Application ID : 4
+Student Username : darrenkhoo
+Owner Username : james
+Property ID : JME214
+Requested Start Date : 05/11/2026
+Status : Rejected
+----------------------
+Application ID : 5
+Student Username : evanlow
+Owner Username : why
+Property ID : WHY836
+Requested Start Date : 15/11/2026
+Status : Pending
+----------------------
+Application ID : 6
+Student Username : gabrielong
+Owner Username : lobak
+Property ID : LOB362
+Requested Start Date : 01/12/2026
+Status : Approved
+----------------------
+Application ID : 7
+Student Username : henrycheong
+Owner Username : chadwong77
+Property ID : CHD705
+Requested Start Date : 10/11/2026
+Status : Rejected
+----------------------
+Application ID : 8
+Student Username : isaacteh
+Owner Username : jeremylin
+Property ID : JER418
+Requested Start Date : 25/10/2026
+Status : Approved
+----------------------
+Application ID : 9
+Student Username : joshuakwan
+Owner Username : ahmadfaiz
+Property ID : AHM927
+Requested Start Date : 01/01/2027
+Status : Pending
+----------------------
+Application ID : 10
+Student Username : marcusyeo
+Owner Username : nuraina
+Property ID : NUR634
+Requested Start Date : 15/12/2026
+Status : Approved
+----------------------
+Application ID : 11
+Student Username : calvinng
+Owner Username : lin
+Property ID : LIN591
+Requested Start Date : 05/01/2027
+Status : Pending
+----------------------
+Application ID : 12
+Student Username : seantoh
+Owner Username : junhao90
+Property ID : JUN549
+Requested Start Date : 20/12/2026
+Status : Rejected
+----------------------
+Application ID : 13
+Student Username : adrianchew
+Owner Username : irfanm
+Property ID : IRF743
+Requested Start Date : 10/01/2027
+Status : Approved
+----------------------
+Application ID : 14
+Student Username : bryangoh
+Owner Username : meiling77
+Property ID : MEI218
+Requested Start Date : 15/01/2027
+Status : Pending
+----------------------
+Application ID : 15
+Student Username : benjamintan
+Owner Username : wong77
+Property ID : WPK728
+Requested Start Date : 01/02/2027
+Status : Approved
 ----------------------

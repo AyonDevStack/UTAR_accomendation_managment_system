@@ -91,7 +91,7 @@ void student_registration()
 
     studentFile.close();
 
-    cout << "Your details added Scuessfully" << endl;
+    cout << "Your details added Sucessfully" << endl;
 }
 
 

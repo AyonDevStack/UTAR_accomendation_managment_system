@@ -35,7 +35,6 @@ Accommodation App in CLI system
 ├── .editorconfig
 ├── Accommodation.h
 ├── app.exe
-├── dir.structure.txt
 ├── main.cpp
 ├── main.exe
 └── README.md

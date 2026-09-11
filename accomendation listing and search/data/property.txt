@@ -1,30 +1,531 @@
-Property ID : J103
-Owner Username : Jemes
-Home Name : Azealea
-Room : 903C
-Room Type : Whole Flate
-Address : james@gmail.com
-Price : 1000 RM
-Description : this is very gooad and close to UTAR
-Distance From UTAR : 1 km
+
+Property ID : WYK247
+Owner Username : why
+Home Name : Mahkota Pearl
+Room : B-05-03
+Room Type : Whole Flat
+Address : Jalan Mahkota 9, Bandar Mahkota Cheras
+Price : 1120 RM
+Description : Nice apartment near shops and public facilities
+Distance From UTAR : 2.6 km
 ----------------------
-Property ID : W100
-Owner Username :why
-Home Name : Azeala Panshapuri, Sungai Long,
-Room : 90C
-Room Type : whole flate
-Address : Azeala Panshapuri, Road :09, Houese 10, Sungai Long
-Price : 1000 Rm
-Description : this is very nice
-Distance From UTAR : 1 km
+Property ID : AHM927
+Owner Username : ahmadfaiz
+Home Name : Evergreen Park
+Room : C-10-02
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 4, Bandar Sungai Long
+Price : 1350 RM
+Description : Spacious home located in a quiet neighbourhood
+Distance From UTAR : 1.6 km
 ----------------------
-Property ID : K100
-Owner Username : kelwin
-Home Name : Flora green Accomendation,Sungai Long
-Room : 303C
-Room Type : Entire Flate
-Address : Flora Green, Near to UTAR,
+Property ID : JER418
+Owner Username : jeremylin
+Home Name : Sungai Long Residence
+Room : B-04-11
+Room Type : Whole Flat
+Address : Jalan SL 1/4, Bandar Sungai Long
 Price : 1000 RM
-Description : this is opposite to UTAR,this is good
-Distance From UTAR : 100 km
+Description : Affordable and comfortable property for students
+Distance From UTAR : 1.2 km
+----------------------
+Property ID : LIN591
+Owner Username : lin
+Home Name : Emerald Residence
+Room : C-05-09
+Room Type : Whole Flat
+Address : Jalan SL 2, Bandar Sungai Long
+Price : 950 RM
+Description : Affordable accommodation suitable for UTAR students
+Distance From UTAR : 1.5 km
+----------------------
+Property ID : MEP742
+Owner Username : meiling77
+Home Name : Orchid Residence
+Room : C-09-10
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 6, Bandar Sungai Long
+Price : 1320 RM
+Description : Modern apartment close to shops and UTAR
+Distance From UTAR : 2.1 km
+----------------------
+Property ID : WPK728
+Owner Username : wong77
+Home Name : Sungai Long Garden
+Room : B-08-06
+Room Type : Whole Flat
+Address : Persiaran Sungai Long, Bandar Sungai Long
+Price : 1250 RM
+Description : Spacious property in a convenient residential area
+Distance From UTAR : 1.3 km
+----------------------
+Property ID : SHC529
+Owner Username : sitihajar
+Home Name : Seri Sungai Long
+Room : C-05-02
+Room Type : Whole Flat
+Address : Jalan SL 8, Bandar Sungai Long
+Price : 1020 RM
+Description : Affordable accommodation with easy access to UTAR
+Distance From UTAR : 1.5 km
+----------------------
+Property ID : JMK472
+Owner Username : james
+Home Name : Rosewood Residence
+Room : A-05-11
+Room Type : Whole Flat
+Address : Jalan SL 4, Bandar Sungai Long
+Price : 1150 RM
+Description : Comfortable accommodation with easy access to campus
+Distance From UTAR : 1.6 km
+----------------------
+Property ID : CXR904
+Owner Username : chadwong77
+Home Name : Central Park Residence
+Room : A-03-07
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 18, Bandar Sungai Long
+Price : 1400 RM
+Description : Spacious apartment close to restaurants and UTAR
+Distance From UTAR : 2.1 km
+----------------------
+Property ID : AYR684
+Owner Username : ayon
+Home Name : Maple Residence
+Room : A-10-06
+Room Type : Whole Flat
+Address : Jalan SL 3, Bandar Sungai Long
+Price : 1180 RM
+Description : Clean and comfortable home suitable for students
+Distance From UTAR : 1.3 km
+----------------------
+Property ID : NXA256
+Owner Username : nuraina
+Home Name : Mahkota Vista
+Room : A-04-08
+Room Type : Whole Flat
+Address : Jalan Mahkota 7, Bandar Mahkota Cheras
+Price : 1080 RM
+Description : Comfortable apartment in a peaceful residential area
+Distance From UTAR : 2.5 km
+----------------------
+Property ID : LOB362
+Owner Username : lobak
+Home Name : Green Valley Residence
+Room : C-06-04
+Room Type : Whole Flat
+Address : Jalan Sungai Long, Bandar Sungai Long
+Price : 1150 RM
+Description : Peaceful home located near university facilities
+Distance From UTAR : 1.4 km
+----------------------
+Property ID : JUZ674
+Owner Username : junhao90
+Home Name : Maple Heights
+Room : A-07-04
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 20, Bandar Sungai Long
+Price : 1270 RM
+Description : Comfortable home located near the university
+Distance From UTAR : 1.8 km
+----------------------
+Property ID : WNX327
+Owner Username : wong77
+Home Name : Harmony Apartment
+Room : B-02-09
+Room Type : Whole Flat
+Address : Jalan Sungai Long 7, Bandar Sungai Long
+Price : 1080 RM
+Description : Affordable home located near UTAR and shops
+Distance From UTAR : 1.4 km
+----------------------
+Property ID : IRF743
+Owner Username : irfanm
+Home Name : Bukit Sungai Long Residence
+Room : B-05-12
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 1, Bandar Sungai Long
+Price : 1050 RM
+Description : Simple and comfortable home near UTAR
+Distance From UTAR : 1.7 km
+----------------------
+Property ID : JXP516
+Owner Username : james
+Home Name : Bluebell Residence
+Room : A-11-09
+Room Type : Whole Flat
+Address : Jalan Sungai Long 16, Bandar Sungai Long
+Price : 1180 RM
+Description : Comfortable residential unit suitable for students
+Distance From UTAR : 1.4 km
+----------------------
+Property ID : NRM468
+Owner Username : nuraina
+Home Name : Mahkota Emerald
+Room : A-10-10
+Room Type : Whole Flat
+Address : Jalan Mahkota 10, Bandar Mahkota Cheras
+Price : 1180 RM
+Description : Comfortable apartment near restaurants and supermarkets
+Distance From UTAR : 2.7 km
+----------------------
+Property ID : AYN443
+Owner Username : ayon
+Home Name : Azealea Residence
+Room : A-03-12
+Room Type : Whole Flat
+Address : Jalan Sungai Long 1, Bandar Sungai Long
+Price : 1100 RM
+Description : Comfortable home located close to UTAR and nearby shops
+Distance From UTAR : 1.1 km
+----------------------
+Property ID : LCN267
+Owner Username : lin
+Home Name : Silverlake Residence
+Room : C-03-04
+Room Type : Whole Flat
+Address : Jalan Sungai Long 23, Bandar Sungai Long
+Price : 1150 RM
+Description : Comfortable apartment near UTAR and local shops
+Distance From UTAR : 1.7 km
+----------------------
+Property ID : CWT692
+Owner Username : chadwong77
+Home Name : Skyline Apartment
+Room : A-12-04
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 10, Bandar Sungai Long
+Price : 1450 RM
+Description : Spacious apartment with convenient access to UTAR
+Distance From UTAR : 2.0 km
+----------------------
+Property ID : SIT376
+Owner Username : sitihajar
+Home Name : Seri Mahkota Apartment
+Room : C-03-05
+Room Type : Whole Flat
+Address : Jalan Mahkota 3, Bandar Mahkota Cheras
+Price : 1000 RM
+Description : Affordable apartment suitable for students
+Distance From UTAR : 2.8 km
+----------------------
+Property ID : JFT819
+Owner Username : james
+Home Name : Parkview Residence
+Room : A-09-11
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 7, Bandar Sungai Long
+Price : 1280 RM
+Description : Nice residential unit in a convenient location
+Distance From UTAR : 2.0 km
+----------------------
+Property ID : WEI852
+Owner Username : weijian88
+Home Name : Cypress Residence
+Room : B-09-07
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 2, Bandar Sungai Long
+Price : 1400 RM
+Description : Spacious residential unit with convenient facilities nearby
+Distance From UTAR : 1.9 km
+----------------------
+Property ID : WHT374
+Owner Username : why
+Home Name : Mahkota Park Residence
+Room : B-06-02
+Room Type : Whole Flat
+Address : Jalan Mahkota 11, Bandar Mahkota Cheras
+Price : 1100 RM
+Description : Affordable apartment with convenient access to amenities
+Distance From UTAR : 2.8 km
+----------------------
+Property ID : JHD623
+Owner Username : junhao90
+Home Name : Oakwood Residence
+Room : A-08-09
+Room Type : Whole Flat
+Address : Jalan Sungai Long 12, Bandar Sungai Long
+Price : 1220 RM
+Description : Nice home located close to UTAR campus
+Distance From UTAR : 1.6 km
+----------------------
+Property ID : LBS635
+Owner Username : lobak
+Home Name : Gardenia Apartment
+Room : C-08-11
+Room Type : Whole Flat
+Address : Jalan Sungai Long 17, Bandar Sungai Long
+Price : 1050 RM
+Description : Affordable home in a convenient residential area
+Distance From UTAR : 1.3 km
+----------------------
+Property ID : WQZ831
+Owner Username : weijian88
+Home Name : Pinewood Residence
+Room : B-12-06
+Room Type : Whole Flat
+Address : Jalan Sungai Long 19, Bandar Sungai Long
+Price : 1350 RM
+Description : Spacious residential unit with nearby facilities
+Distance From UTAR : 2.0 km
+----------------------
+Property ID : JME214
+Owner Username : james
+Home Name : Azalea Park
+Room : A-09-03
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long, Bandar Sungai Long
+Price : 1200 RM
+Description : Nice residential unit with easy access to UTAR
+Distance From UTAR : 1.7 km
+----------------------
+Property ID : AFK814
+Owner Username : ahmadfaiz
+Home Name : Palm Garden Residence
+Room : C-09-06
+Room Type : Whole Flat
+Address : Jalan Sungai Long 11, Bandar Sungai Long
+Price : 1350 RM
+Description : Modern property suitable for students and families
+Distance From UTAR : 1.9 km
+----------------------
+Property ID : MLG345
+Owner Username : meiling77
+Home Name : Blossom Residence
+Room : C-12-01
+Room Type : Whole Flat
+Address : Jalan Sungai Long 13, Bandar Sungai Long
+Price : 1380 RM
+Description : Modern and spacious apartment near local facilities
+Distance From UTAR : 2.0 km
+----------------------
+Property ID : WHY836
+Owner Username : why
+Home Name : Mahkota Heights
+Room : B-12-08
+Room Type : Whole Flat
+Address : Jalan Mahkota Cheras, Bandar Mahkota Cheras
+Price : 1050 RM
+Description : Comfortable apartment near restaurants and convenience stores
+Distance From UTAR : 2.6 km
+----------------------
+Property ID : JLN538
+Owner Username : jeremylin
+Home Name : Golden View Residence
+Room : B-06-10
+Room Type : Whole Flat
+Address : Jalan SL 5, Bandar Sungai Long
+Price : 1280 RM
+Description : Comfortable home located near restaurants and shops
+Distance From UTAR : 1.7 km
+----------------------
+Property ID : NUR634
+Owner Username : nuraina
+Home Name : Mahkota Garden
+Room : A-07-10
+Room Type : Whole Flat
+Address : Jalan Mahkota 1, Bandar Mahkota Cheras
+Price : 1150 RM
+Description : Comfortable apartment close to shops and restaurants
+Distance From UTAR : 2.4 km
+----------------------
+Property ID : SHP489
+Owner Username : sitihajar
+Home Name : Seri Cheras Residence
+Room : C-02-07
+Room Type : Whole Flat
+Address : Jalan Mahkota 8, Bandar Mahkota Cheras
+Price : 980 RM
+Description : Affordable accommodation near shops and restaurants
+Distance From UTAR : 2.9 km
+----------------------
+Property ID : AZP761
+Owner Username : ayon
+Home Name : Lakeview Residence
+Room : A-06-03
+Room Type : Whole Flat
+Address : Jalan Sungai Long 14, Bandar Sungai Long
+Price : 1250 RM
+Description : Comfortable apartment located in a quiet neighbourhood
+Distance From UTAR : 1.7 km
+----------------------
+Property ID : IRT957
+Owner Username : irfanm
+Home Name : Hillview Apartment
+Room : B-03-06
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 4, Bandar Sungai Long
+Price : 1000 RM
+Description : Affordable property with easy access to university
+Distance From UTAR : 1.8 km
+----------------------
+Property ID : CHD705
+Owner Username : chadwong77
+Home Name : Lavender Park
+Room : A-11-05
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 3, Bandar Sungai Long
+Price : 1300 RM
+Description : Modern home with convenient access to UTAR
+Distance From UTAR : 1.8 km
+----------------------
+Property ID : JRM382
+Owner Username : jeremylin
+Home Name : Silver Oak Residence
+Room : B-09-02
+Room Type : Whole Flat
+Address : Jalan SL 7, Bandar Sungai Long
+Price : 1200 RM
+Description : Comfortable home in a quiet student-friendly area
+Distance From UTAR : 1.6 km
+----------------------
+Property ID : NRM468
+Owner Username : nuraina
+Home Name : Mahkota Emerald
+Room : A-10-10
+Room Type : Whole Flat
+Address : Jalan Mahkota 10, Bandar Mahkota Cheras
+Price : 1180 RM
+Description : Comfortable apartment near restaurants and supermarkets
+Distance From UTAR : 2.7 km
+----------------------
+Property ID : JUN549
+Owner Username : junhao90
+Home Name : Green Acre Park
+Room : A-06-08
+Room Type : Whole Flat
+Address : Jalan Sungai Long 5, Bandar Sungai Long
+Price : 1250 RM
+Description : Convenient property with easy access to the university
+Distance From UTAR : 1.5 km
+----------------------
+Property ID : IRK315
+Owner Username : irfanm
+Home Name : Bukit View Apartment
+Room : B-04-08
+Room Type : Whole Flat
+Address : Jalan SL 9, Bandar Sungai Long
+Price : 1080 RM
+Description : Affordable property in a peaceful neighbourhood
+Distance From UTAR : 1.6 km
+----------------------
+Property ID : LPN304
+Owner Username : lobak
+Home Name : Flora Residence
+Room : C-07-08
+Room Type : Whole Flat
+Address : Jalan Sungai Long 9, Bandar Sungai Long
+Price : 1100 RM
+Description : Affordable property in a student-friendly neighbourhood
+Distance From UTAR : 1.5 km
+----------------------
+Property ID : WSL428
+Owner Username : wong77
+Home Name : Sunflower Apartment
+Room : B-07-05
+Room Type : Whole Flat
+Address : Jalan SL 6, Bandar Sungai Long
+Price : 1150 RM
+Description : Convenient accommodation close to university facilities
+Distance From UTAR : 1.5 km
+----------------------
+Property ID : AFQ715
+Owner Username : ahmadfaiz
+Home Name : Vista Sungai Long
+Room : C-06-06
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 5, Bandar Sungai Long
+Price : 1280 RM
+Description : Modern home with convenient access to campus
+Distance From UTAR : 1.9 km
+----------------------
+Property ID : WVB953
+Owner Username : wong77
+Home Name : Golden Garden Apartment
+Room : B-11-08
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 22, Bandar Sungai Long
+Price : 1250 RM
+Description : Spacious property suitable for students
+Distance From UTAR : 1.8 km
+----------------------
+Property ID : AYN486
+Owner Username : ayon
+Home Name : Riverside Residence
+Room : A-02-11
+Room Type : Whole Flat
+Address : Jalan Sungai Long 21, Bandar Sungai Long
+Price : 1100 RM
+Description : Simple and comfortable accommodation near campus
+Distance From UTAR : 1.4 km
+----------------------
+Property ID : LTR893
+Owner Username : lin
+Home Name : Crystal Heights
+Room : C-04-12
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 15, Bandar Sungai Long
+Price : 1300 RM
+Description : Spacious home with nearby restaurants and shops
+Distance From UTAR : 1.9 km
+----------------------
+Property ID : MLG345
+Owner Username : meiling77
+Home Name : Blossom Residence
+Room : C-12-01
+Room Type : Whole Flat
+Address : Jalan Sungai Long 13, Bandar Sungai Long
+Price : 1380 RM
+Description : Modern and spacious apartment near local facilities
+Distance From UTAR : 2.0 km
+----------------------
+Property ID : WHT374
+Owner Username : why
+Home Name : Mahkota Park Residence
+Room : B-06-02
+Room Type : Whole Flat
+Address : Jalan Mahkota 11, Bandar Mahkota Cheras
+Price : 1100 RM
+Description : Affordable apartment with convenient access to amenities
+Distance From UTAR : 2.8 km
+----------------------
+Property ID : JUZ674
+Owner Username : junhao90
+Home Name : Maple Heights
+Room : A-07-04
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 20, Bandar Sungai Long
+Price : 1270 RM
+Description : Comfortable home located near the university
+Distance From UTAR : 1.8 km
+----------------------
+Property ID : WJG731
+Owner Username : weijian88
+Home Name : Cedar Residence
+Room : B-10-05
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 3, Bandar Sungai Long
+Price : 1320 RM
+Description : Spacious home with convenient access to UTAR
+Distance From UTAR : 1.8 km
+----------------------
+Property ID : MEP742
+Owner Username : meiling77
+Home Name : Orchid Residence
+Room : C-09-10
+Room Type : Whole Flat
+Address : Persiaran Bukit Sungai Long 6, Bandar Sungai Long
+Price : 1320 RM
+Description : Modern apartment close to shops and UTAR
+Distance From UTAR : 2.1 km
+----------------------
+Property ID : CXR904
+Owner Username : chadwong77
+Home Name : Central Park Residence
+Room : A-03-07
+Room Type : Whole Flat
+Address : Persiaran Sungai Long 18, Bandar Sungai Long
+Price : 1400 RM
+Description : Spacious apartment close to restaurants and UTAR
+Distance From UTAR : 2.1 km
 ----------------------

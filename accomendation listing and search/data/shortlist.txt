@@ -1,6 +1,90 @@
-Student Username : 
-Property ID : J103
+Student Username : kennethchua
+Property ID : POV123
 ----------------------
-Student Username : 
-Property ID : J103
+Student Username : benjamintan
+Property ID : AYN443
+----------------------
+Student Username : calvinng
+Property ID : WPK728
+----------------------
+Student Username : darrenkhoo
+Property ID : LIN591
+----------------------
+Student Username : evanlow
+Property ID : JME214
+----------------------
+Student Username : gabrielong
+Property ID : WHY836
+----------------------
+Student Username : henrycheong
+Property ID : LOB362
+----------------------
+Student Username : isaacteh
+Property ID : CHD705
+----------------------
+Student Username : joshuakwan
+Property ID : JER418
+----------------------
+Student Username : marcusyeo
+Property ID : AHM927
+----------------------
+Student Username : nicholasho
+Property ID : NUR634
+----------------------
+Student Username : ryanfoo
+Property ID : WEI852
+----------------------
+Student Username : seantoh
+Property ID : SIT376
+----------------------
+Student Username : adrianchew
+Property ID : JUN549
+----------------------
+Student Username : bryangoh
+Property ID : IRF743
+----------------------
+Student Username : marcuschong
+Property ID : MEI218
+----------------------
+Student Username : aaronyap
+Property ID : AYR684
+----------------------
+Student Username : brandonleong
+Property ID : WNX327
+----------------------
+Student Username : cedricsim
+Property ID : LQF915
+----------------------
+Student Username : dylanbeh
+Property ID : JMK472
+----------------------
+Student Username : ethanliew
+Property ID : WHR861
+----------------------
+Student Username : felixchan
+Property ID : LPN304
+----------------------
+Student Username : gavinsee
+Property ID : CWT692
+----------------------
+Student Username : justinlau
+Property ID : JLN538
+----------------------
+Student Username : leonardlim
+Property ID : AFK814
+----------------------
+Student Username : marcuslai
+Property ID : NXA256
+----------------------
+Student Username : nigelwong
+Property ID : WJG731
+----------------------
+Student Username : patrickloh
+Property ID : SHP489
+----------------------
+Student Username : raymondchai
+Property ID : JHD623
+----------------------
+Student Username : samuelkoo
+Property ID : IRT957
 ----------------------

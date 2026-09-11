@@ -1,42 +1,319 @@
-Name : ayon
-Email : ayon@gmail.con
-User name : ayon
-PassWord : backhambro
-Phone Number : 65946641891
+
+Name : Kenneth Chua
+Email : kennethchua@gmail.com
+User name : kennethchua403
+PassWord : kenneth
+Phone Number : 0185122298
 ----------------------
-Name : Choo
-Email : Yang
-User name : choo
-PassWord : choo
-Phone Number : 0127184663
+Name : Benjamin Tan
+Email : benjamintan@gmail.com
+User name : benjamintan
+PassWord : BenTan82
+Phone Number : 0134567821
 ----------------------
-Name : sinthia
-Email : ayon@gmail.com
-User name : sinthia
-PassWord : 123456
-Phone Number : 01712183925
+Name : Calvin Ng
+Email : calvinng@gmail.com
+User name : calvinng
+PassWord : Calvin39Ng
+Phone Number : 0145678932
 ----------------------
-Name : Rafi
-Email : Ayon
-User name : ayon
-PassWord : 123456
-Phone Number : 0171218567
+Name : Darren Khoo
+Email : darrenkhoo@gmail.com
+User name : darrenkhoo
+PassWord : Darren65K
+Phone Number : 0167892345
 ----------------------
-Name : kennath
-Email : kennath@gmail.com
-User name : kennath
-PassWord : kennath
-Phone Number : 0123456789
+Name : Evan Low
+Email : evanlow@gmail.com
+User name : evanlow
+PassWord : EvanLow73
+Phone Number : 0178923456
 ----------------------
-Name : Rafi
-Email : rafi@gmail.com
-User name : rafi
-PassWord : rafi
-Phone Number : 01721243432
+Name : Gabriel Ong
+Email : gabrielong@gmail.com
+User name : gabrielong
+PassWord : GabOng51
+Phone Number : 0189234567
 ----------------------
-Name : Md Ayon
-Email : mdayon@gmail.com
-User name : mdayon
-PassWord : mdayon
-Phone Number : 123456789
+Name : Henry Cheong
+Email : henrycheong@gmail.com
+User name : henrycheong
+PassWord : Henry84C
+Phone Number : 0192345678
+----------------------
+Name : Isaac Teh
+Email : isaacteh@gmail.com
+User name : isaacteh
+PassWord : IsaacTeh62
+Phone Number : 0128765432
+----------------------
+Name : Joshua Kwan
+Email : joshuakwan@gmail.com
+User name : joshuakwan
+PassWord : JoshKwan95
+Phone Number : 0137654321
+----------------------
+Name : Marcus Yeo
+Email : marcusyeo@gmail.com
+User name : marcusyeo
+PassWord : Marcus48Y
+Phone Number : 0146543210
+----------------------
+Name : Nicholas Ho
+Email : nicholasho@gmail.com
+User name : nicholasho
+PassWord : NickHo76
+Phone Number : 0165432109
+----------------------
+Name : Ryan Foo
+Email : ryanfoo@gmail.com
+User name : ryanfoo
+PassWord : RyanFoo53
+Phone Number : 0174321098
+----------------------
+Name : Sean Toh
+Email : seantoh@gmail.com
+User name : seantoh
+PassWord : SeanToh81
+Phone Number : 0183210987
+----------------------
+Name : Adrian Chew
+Email : adrianchew@gmail.com
+User name : adrianchew
+PassWord : Adrian64C
+Phone Number : 0192109876
+----------------------
+Name : Bryan Goh
+Email : bryangoh@gmail.com
+User name : bryangoh
+PassWord : BryanGoh37
+Phone Number : 0121987654
+----------------------
+Name : Marcus Chong
+Email : marcuschong@gmail.com
+User name : marcuschong
+PassWord : MarcusCh92
+Phone Number : 0132876543
+----------------------
+Name : Aaron Yap
+Email : aaronyap@gmail.com
+User name : aaronyap
+PassWord : AaronYap58
+Phone Number : 0143765432
+----------------------
+Name : Brandon Leong
+Email : brandonleong@gmail.com
+User name : brandonleong
+PassWord : BranLeong74
+Phone Number : 0164654321
+----------------------
+Name : Cedric Sim
+Email : cedricsim@gmail.com
+User name : cedricsim
+PassWord : Cedric61S
+Phone Number : 0175543210
+----------------------
+Name : Dylan Beh
+Email : dylanbeh@gmail.com
+User name : dylanbeh
+PassWord : DylanBeh86
+Phone Number : 0186432109
+----------------------
+Name : Ethan Liew
+Email : ethanliew@gmail.com
+User name : ethanliew
+PassWord : EthanLiew42
+Phone Number : 0197321098
+----------------------
+Name : Felix Chan
+Email : felixchan@gmail.com
+User name : felixchan
+PassWord : FelixChan69
+Phone Number : 0128210934
+----------------------
+Name : Gavin See
+Email : gavinsee@gmail.com
+User name : gavinsee
+PassWord : GavinSee57
+Phone Number : 0139102847
+----------------------
+Name : Justin Lau
+Email : justinlau@gmail.com
+User name : justinlau
+PassWord : JustinLau83
+Phone Number : 0148291736
+----------------------
+Name : Kevin Tiong
+Email : kevin tiong@gmail.com
+User name : kevin tiong
+PassWord : KevinTiong46
+Phone Number : 0167182635
+----------------------
+Name : Leonard Lim
+Email : leonardlim@gmail.com
+User name : leonardlim
+PassWord : LeoLim72
+Phone Number : 0176071524
+----------------------
+Name : Marcus Lai
+Email : marcuslai@gmail.com
+User name : marcuslai
+PassWord : MarcusLai39
+Phone Number : 0185960413
+----------------------
+Name : Nigel Wong
+Email : nigelwong@gmail.com
+User name : nigelwong
+PassWord : NigelWong64
+Phone Number : 0194859302
+----------------------
+Name : Patrick Loh
+Email : patrickloh@gmail.com
+User name : patrickloh
+PassWord : PatrickLoh78
+Phone Number : 0123748291
+----------------------
+Name : Raymond Chai
+Email : raymondchai@gmail.com
+User name : raymondchai
+PassWord : RayChai52
+Phone Number : 0132637184
+----------------------
+Name : Samuel Koo
+Email : samuelkoo@gmail.com
+User name : samuelkoo
+PassWord : SamuelKoo91
+Phone Number : 0141526073
+----------------------
+Name : Terence Mok
+Email : terencemok@gmail.com
+User name : terencemok
+PassWord : TerenceMok43
+Phone Number : 0169415263
+----------------------
+Name : Vincent Lam
+Email : vincentlam@gmail.com
+User name : vincentlam
+PassWord : VincentLam67
+Phone Number : 0178304152
+----------------------
+Name : Wesley Cheah
+Email : wesleycheah@gmail.com
+User name : wesleycheah
+PassWord : WesleyCheah85
+Phone Number : 0187293041
+----------------------
+Name : Zachary Teo
+Email : zacharyteo@gmail.com
+User name : zacharyteo
+PassWord : ZacharyTeo31
+Phone Number : 0196182730
+----------------------
+Name : Alisha Wong
+Email : alishawong@gmail.com
+User name : alishawong
+PassWord : AlishaWong59
+Phone Number : 0125071629
+----------------------
+Name : Brenda Tan
+Email : brendatan@gmail.com
+User name : brendatan
+PassWord : BrendaTan74
+Phone Number : 0134960518
+----------------------
+Name : Cassandra Lim
+Email : cassandralim@gmail.com
+User name : cassandralim
+PassWord : CassLim63
+Phone Number : 0143859407
+----------------------
+Name : Diana Kho
+Email : dianakho@gmail.com
+User name : dianakho
+PassWord : DianaKho88
+Phone Number : 0162748396
+----------------------
+Name : Elaine Yap
+Email : elaineyap@gmail.com
+User name : elaineyap
+PassWord : ElaineYap45
+Phone Number : 0171637285
+----------------------
+Name : Fiona Lee
+Email : fionalee@gmail.com
+User name : fionalee
+PassWord : FionaLee71
+Phone Number : 0180526174
+----------------------
+Name : Grace Chong
+Email : gracechong@gmail.com
+User name : gracechong
+PassWord : GraceChong56
+Phone Number : 0198415063
+----------------------
+Name : Hannah Ong
+Email : hannahong@gmail.com
+User name : hannahong
+PassWord : HannahOng92
+Phone Number : 0127304958
+----------------------
+Name : Irene Chew
+Email : irenechew@gmail.com
+User name : irenechew
+PassWord : IreneChew38
+Phone Number : 0136293847
+----------------------
+Name : Jasmine Koo
+Email : jasminekoo@gmail.com
+User name : jasminekoo
+PassWord : JasmineKoo65
+Phone Number : 0145182736
+----------------------
+Name : Kelly Teh
+Email : kellyteh@gmail.com
+User name : kellyteh
+PassWord : KellyTeh84
+Phone Number : 0164071529
+----------------------
+Name : Melissa Lau
+Email : melissalau@gmail.com
+User name : melissalau
+PassWord : MelissaLau47
+Phone Number : 0173960418
+----------------------
+Name : Nicole Sim
+Email : nicolesim@gmail.com
+User name : nicolesim
+PassWord : NicoleSim73
+Phone Number : 0182859307
+----------------------
+Name : Olivia Chai
+Email : oliviachai@gmail.com
+User name : oliviachai
+PassWord : OliviaChai61
+Phone Number : 0191748296
+----------------------
+Name : Rachel Loh
+Email : rachelloh@gmail.com
+User name : rachelloh
+PassWord : RachelLoh89
+Phone Number : 0129637185
+----------------------
+Name : Sophia Mok
+Email : sophiamok@gmail.com
+User name : sophiamok
+PassWord : SophiaMok54
+Phone Number : 0138526074
+----------------------
+Name : Vanessa Lam
+Email : vanessalam@gmail.com
+User name : vanessalam
+PassWord : VanessaLam76
+Phone Number : 0147415963
+----------------------
+Name : Yvonne Cheah
+Email : yvonnecheah@gmail.com
+User name : yvonnecheah
+PassWord : YvonneCh42
+Phone Number : 0166304852
 ----------------------
